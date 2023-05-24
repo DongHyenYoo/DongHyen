@@ -1,0 +1,26 @@
+/*
+ * OracleDAO.java
+ * -DAO 구성
+ * - MSsqlDAO 와 비교하여 설정만 다르게 구성하여 실습진행
+ */
+
+package com.test.spr;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OracleDAO implements IDAO
+{
+
+	@Override
+	public List<MemberDTO> list() throws ClassNotFoundException, SQLException
+	{
+		
+		List<MemberDTO> result = new ArrayList<MemberDTO>();
+		
+		return null;
+	}
+
+	
+}

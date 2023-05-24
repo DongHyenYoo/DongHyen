@@ -1,0 +1,71 @@
+/*=========================================
+ * Main.java
+ * -클래스
+ * -main() 메소드가 포함된 테스트 클래스.
+===========================================*/
+
+package com.test.spr;
+
+import java.lang.reflect.Proxy;
+
+public class Main
+{
+	
+	public static void main(String[] args)
+	{
+		
+		
+		//주 업무를 실행할 수 있는 객체 준비
+		Calculator cal = new CalculatorImpl();
+		
+		//메소드 호출을 통해 업무 실행 테스트
+		/*
+		int add = cal.add(10, 20);
+		System.out.println(add);
+		
+		int sub = cal.sub(10, 20);
+		System.out.println(sub);
+		
+		int mul = cal.mul(20, 30);
+		System.out.println(mul);
+		
+		int div = cal.div(30, 15);
+		System.out.println(div);
+		*/
+		
+		/*
+		 
+		 .newProxyInstance는 실리콘 마스크를 위한 준비물 3개고 이를 .Invoke에 전달하고 
+		 .Invoke가 실리콘마스크를 제작하는것과 같다.
+		  
+		Proxy.newProxyInstance(주 업무 실행 클래스에 대한 정보 전달
+								, 주 업무 실행 클래스의 인터페이스에 대한 정보 전달
+								, 보조 업무 실행 클래스에 대한 정보 전달);
+		*/
+		
+		Calculator cal2 = (Calculator)Proxy.newProxyInstance(cal.getClass().getClassLoader() 
+				              , cal.getClass().getInterfaces()
+				              , new CalculatorProxy(cal));
+
+		
+//		cal : 객체  : 바이든
+//		getClass() : 객체의 클래스를 가져온다 :바이든의 주민등록본
+//		getClassLoader() : 클래스의 정보를 가져온다. : 주민등록본을 읽는 장치
+//		
+		
+		int add = cal.add(10, 20);
+		System.out.println(add);
+		
+		int sub = cal.sub(10, 20);
+		System.out.println(sub);
+		
+		int mul = cal.mul(20, 30);
+		System.out.println(mul);
+		
+		int div = cal.div(30, 15);
+		System.out.println(div);
+		
+		
+	}
+
+}

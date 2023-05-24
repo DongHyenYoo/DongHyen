@@ -1,0 +1,23 @@
+
+1월 04, 2023 09:19:29.85 NEW SESSION
+1월 04, 2023 09:19:29.85 [2044:2068:0104/091929.854:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 04, 2023 09:19:29.85 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 04, 2023 09:19:29.85 ERROR: Failed parsing Certificate
+1월 04, 2023 09:19:29.86 
+1월 04, 2023 09:19:30.11 [2044:10232:0104/091930.114:ERROR:device_event_log_impl.cc(215)] [09:19:30.114] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 04, 2023 09:19:30.11 [2044:10232:0104/091930.114:ERROR:device_event_log_impl.cc(215)] [09:19:30.114] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 04, 2023 09:20:27.72 [2044:16376:0104/092027.723:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+1월 04, 2023 09:36:39.30 [2044:10232:0104/093639.300:ERROR:interface_endpoint_client.cc(694)] Message 0 rejected by interface blink.mojom.WidgetHost
+1월 04, 2023 10:00:33.94 [2044:10232:0104/100033.943:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:34.03 [2044:10232:0104/100034.032:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:34.10 [2044:10232:0104/100034.104:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:34.26 [2044:10232:0104/100034.263:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:34.44 [2044:10232:0104/100034.441:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:34.69 [2044:10232:0104/100034.697:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:00:35.43 [2044:10232:0104/100035.433:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 10:01:05.63 [2044:10232:0104/100105.634:ERROR:page_load_metrics_update_dispatcher.cc(160)] Invalid parse_start 0.367 s for activation_start 0.085746 s
+1월 04, 2023 11:03:34.01 [2044:15328:0104/110334.013:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 04, 2023 11:03:34.02 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 04, 2023 11:03:34.02 ERROR: Failed parsing Certificate
+1월 04, 2023 11:03:34.02 
+1월 04, 2023 11:30:59.55 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)

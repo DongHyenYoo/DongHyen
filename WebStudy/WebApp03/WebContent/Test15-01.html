@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+   * {color: #223322;}
+   input {font-family: 나눔고딕코딩; font-weight: bold;}
+   input:focus {background-color: #eeeedd;}
+   input.btn {width: 80px; font-weight: bold; font-family: 맑은 고딕;}
+   input.btn.hover {color: orange;}
+   td {text-align: center;}
+   .txt {text-align: right;}
+   
+</style>
+
+<script type="text/javascript">
+
+	function myCalc()
+	{
+		var money = parseInt(document.getElementById("money").value); //입력 값 정수 변환
+		
+		var tot = money;
+		
+		document.getElementById("tot").value = tot;
+		
+		
+		//alert(paserInt(123.456)) -> 123
+		//alert(parseInt(123.999)) -> 123 반올림을 하는게 아닌 정수만 뽑아줌
+		
+		
+		var obac = parseInt(money/500); // /하면 소수까지 나오므로 정수형으로 바꾸기  
+		
+		
+		money = money % 500; //500원으로 나눈 나머지가 money
+		
+		document.getElementById("obac").value = obac;
+		
+		
+		var bac = parseInt(money/100);
+		
+		money = money % 100;
+		
+		document.getElementById("bac").value = bac;
+		
+		//money = money % 100; //다시 100원으로 나눈 나머지가 money
+		
+		var osib = parseInt(money/50);
+		
+		money = money % 50;
+		
+		document.getElementById("osib").value = osib;
+		
+		var sib = parseInt(money/10);
+		
+		document.getElementById("sib").value = sib;
+		
+		
+		
+		
+		
+	}
+
+
+</script>
+
+
+</head>
+<body>
+<div>
+   <!-- <p>특정 금액(10원 ~ 990원)을 사용자로부터 입력받아</p>
+   <p>화폐 단위로 구분하여 출력하는 페이지를 구성한다.</p>
+   <p>화폐 단위는 편의상 오백원, 백원, 오십원, 십원 으로 구분한다.</p>
+   <p>HTML, CSS, Javascript 를 활용한다.</p><br> -->
+   <h1>자바 스크립트 활용</h1>
+   <hr>
+</div>
+
+<div>
+   <form>
+      <table>
+         <tr>
+            <td>금액</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="money"></td>
+            <td>원</td>
+         </tr>
+         
+         <tr>
+            <td colspan="3">
+               <input type="button" value="결과" class="btn" onclick="myCalc()">
+               <input type="reset" value="취소" class="btn">   
+            </td>
+         </tr>
+         
+         <tr style="height: 10px";></tr>
+         
+         <tr>
+            <td>총 액</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="totalMoney" disabled="disabled"></td>
+            <td>원</td>
+         </tr>
+         
+         <tr>
+            <td>오백원</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="m500" disabled="disabled"></td>
+            <td>개</td>
+         </tr>
+         
+         <tr>
+            <td>백원</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="m100" disabled="disabled"></td>
+            <td>개</td>
+         </tr>
+         
+         <tr>
+            <td>오십원</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="m50" disabled="disabled"></td>
+            <td>개</td>
+         </tr>
+         
+         <tr>
+            <td>십원</td>
+            <td><input type="text" style="width: 100px;" class="txt" id="m10" disabled="disabled"></td>
+            <td>개</td>
+         </tr>
+      </table>
+   </form>
+</div>
+
+
+</body>
+</html>

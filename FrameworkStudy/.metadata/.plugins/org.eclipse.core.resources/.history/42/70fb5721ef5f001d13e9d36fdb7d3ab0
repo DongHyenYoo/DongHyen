@@ -1,0 +1,13 @@
+/*
+ MemberList.java
+ -DAO를 참조하는 클래스
+ - 의존관계 설정을 위한 준비.
+ - print() 메소드 구현
+ */
+
+package com.test.spr;
+
+public class MemberList
+{
+
+}

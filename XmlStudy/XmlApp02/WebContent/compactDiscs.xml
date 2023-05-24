@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE compactDiscs
+[
+<!ELEMENT compactDiscs (compactDisc+)>
+<!ELEMENT compactDisc (artist, title, tracks, price)>
+<!ELEMENT artist (#PCDATA)>
+<!ATTLIST artist type (individule | band) #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title numberOfTracks CDATA #REQUIRED>
+<!ELEMENT tracks (track+)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT track (#PCDATA)>
+]>
+
+<!-- 위 DTD 내용을 토대로 XML 문서를 완성한다. -->
+<!-- 데이터는 자신이 좋아하는 가수의 곡 정보를 5곡 이상 등록한다. -->
+
+<compactDiscs>
+
+	<compactDisc >
+	   <artist type="band"></artist> <!-- 그룹 -->
+	   <title numberOfTracks="1"></title>
+	   <tracks>
+	   	<track></track>
+	   </tracks>
+	   <price></price>
+	</compactDisc>
+
+<compactDisc >
+	   <artist type="individule"></artist> <!-- 개인아티스트  -->
+	   <title numberOfTracks="1"></title>
+	   <tracks>
+	   	<track></track>
+	   </tracks>
+	   <price></price>
+	</compactDisc>
+</compactDiscs>

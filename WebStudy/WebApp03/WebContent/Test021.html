@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+
+<script type="text/javascript">
+
+function input()
+{
+	
+	var arr = new Array();
+	var n = 0;
+	
+	do
+	{
+		var str = prompt((n+1)+" 번째 이름 전화번호 입력");
+		
+		if(str == " " || str == "" || str == null )
+			break;
+			
+		arr[n] = str;
+		n++;
+		
+		
+		
+	} while (true);
+	
+	
+	
+	for(var i=0; i<arr.length; i++)
+		{
+			document.getElementById("txtResult").value += arr[i]+"\n";
+		}
+	
+	alert(Number(document.getElementById("txtCount").value));
+	
+	document.getElementById("txtCount").value = arr.length;
+}
+
+</script>
+
+</head>
+<body>
+
+
+	<!-- 사용자로부터 여러명의 이름과 전화번호를 입력받고
+그 내용을 전체 출력하는 페이지를 구현한다.
+
+HTML,CSS,JavaScript를 활용한다.
+
+※ prompt()활용
+
+페이지 레이아웃
+
+<회원 정보 입력> -> click -> 프롬프트 대화창이 열리게
+
+전체 회원 수 [] 명
+---------------
+ 이름  전화번호
+     :
+     :
+     
+-------------------- -->
+
+	<div>
+		<form>
+
+			<input type="button" class="btn" onclick="input()" value="회원 정보 입력"><br><br>
+			
+			전체회원수<input type="text" class="txt" id="txtCount" readonly="readonly"><br><br>
+			<textarea rows="20" cols="20" id="txtResult" readonly="readonly"
+				class="txt"></textarea>
+
+		</form>
+
+	</div>
+
+
+
+</body>
+</html>

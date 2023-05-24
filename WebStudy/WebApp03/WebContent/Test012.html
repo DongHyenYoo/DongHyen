@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test012.html</title>
+
+<script type="text/javascript">
+
+	//msg = 함수 밖에 선언한 전역변수
+	//즉 모든 함수에서 접근 가능함
+	//var을 써도 안써도 기본적으로 전역변수임
+	var msg = "2022년 9월 29일";
+
+	function buttonOnclick1()
+	{
+		//alert("첫번째");
+		//name = 함수 안에 선언한 지역변수로
+		//buttonOnclick1 에서만 보인다.
+		//var name = "정영준";
+		
+		name="민찬우"
+		//var 키워드가 없다면 상황에따른 지역/전역 변수가 된다.
+		
+		//name으로 쓰면 두번째->첫번째->두번째 버튼순서로하면
+		//2번째 함수 즉 name이 보이지 않는 함수에서도 name이 보인다.
+		//var이 없다면 실행된 시점에서 
+		//name이라는 변수를 메모리에 적재해서 전역변수처럼 쓴다.
+		
+		document.write("이름 : "+ name);
+		alert(msg);
+	}
+	
+	function buttonOnclick2()
+	{
+		//alert("두번째");
+		
+		document.write(name);
+		alert(msg);
+	}
+
+</script>
+
+
+
+</head>
+<body>
+
+
+<input type="button" id="button1" value="Button" onclick="buttonOnclick1()"><br>
+<input type="button" id="button2" value="Button" onclick="buttonOnclick2()"><br>
+
+
+</body>
+</html>

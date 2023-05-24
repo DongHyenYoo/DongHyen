@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:component-scan
+		base-package="org.springframework.samples.petclinic.web" />
+
+	<!-- ※ 『dispatcher-servlet.xml』 의 기본 샘플코드 -->
+	<!--  이코드는 기본설정에 대한 템블릿을 복사하기 위해 스프링 doc를 참조하여 작성한다. -->
+	<!--  ① 『C:\Downloads\s-f-3.0.2-with-docs\spring-framework-3.0.2.RELEASE\docs\spring-framework-reference\htmlsingle』경로로 이동-->
+	<!--  ②『spring-framework-reference.html』파일 실행-->
+	<!--  ③pdf의 경우 본문페이지 425페이지 찾아서 이동 450/ 805 페이지로 이동-->
+	<!--  ④ 페이지 하단의 XML 파일 샘플코드 복사 & 붙여넣기 -->
+	
+	
+<!-- BeanNameUrlHandlerMapping -->
+	<bean id="beanNameUrlHandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="alwaysUseFullPath" value="true"></property>
+		<property name="order" value="1"></property>
+	</bean>
+	
+	
+	<!-- InternalResourceViewResolver -->
+	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	
+	<!-- DataSource →SimpleDriverDataSource -->
+	<bean id="myDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@211.238.142.47:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+	
+	
+	<bean id="memberDAO" class="com.test.MemberDAO">
+	<property name="dataSource" ref="myDataSource"></property>
+	</bean>
+	<bean id="memberrecordDAO" class="com.test.MemberRecordDAO">
+	<property name="dataSource" ref="myDataSource"></property>
+	</bean>
+	
+	
+	<!-- DAO 등록 -->
+
+	<bean name="/memberlist.action" class="com.test.MemberListController">
+	<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	
+	<bean name="/memberinsertform.action" class="com.test.MemberInsertFormController"></bean>
+
+
+	<bean name="/memberajax.action" class="com.test.MemberAjaxController">
+	<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	
+	<bean name="/memberinsert.action" class="com.test.MemberInsertController">	
+	<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<bean name="/telajax.action" class="com.test.TelAjaxController">
+	<property name="dao" ref="memberDAO"></property>	
+	</bean>
+	
+	<bean name="/memberupdateform.action" class="com.test.MemberUpdateFormController">
+	<property name="dao" ref="memberDAO"></property>		
+	</bean>
+	
+	<bean name="/memberupdate.action" class="com.test.MemberUpdateController">
+	<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecordlist.action" class="com.test.MemberRecordListController">
+	<property name="dao" ref="memberrecordDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecordinsertform.action" class="com.test.MemberRecordInsertFormController"></bean>
+	
+	
+	<bean name="/memberrecordajax.action" class="com.test.RecordAjax">
+	<property name="memberDAO" ref="memberDAO"></property>
+	<property name="memberRecordDAO" ref="memberrecordDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecordinsert.action" class="com.test.MemberRecordInsertController">
+	<property name="dao" ref="memberrecordDAO"></property>
+	
+	</bean>
+	
+	<bean name="/memberrecordupdateform.action" class="com.test.MemberRecordUpdateFormController">
+	<property name="dao" ref="memberrecordDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecordupdate.action" class="com.test.MemberRecordUpdateController">
+	<property name="dao" ref="memberrecordDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecorddeleteform.action" class="com.test.MemberRecordDeleteController">
+	<property name="dao" ref="memberrecordDAO"></property>
+	</bean>
+	
+	<bean name="/loginform.action" class="com.test.LoginFormController">
+	</bean>
+	
+	<bean name="/login.action" class="com.test.LoginController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+
+	<bean name="/logout.action" class="com.test.LogoutController">
+	</bean>
+	
+</beans>

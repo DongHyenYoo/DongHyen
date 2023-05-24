@@ -1,0 +1,61 @@
+package com.test;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Process
+{
+	private ScoreDAO dao;
+	
+	public Process()
+	{
+		dao = new ScoreDAO();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void Scoreadd() throws SQLException
+	{
+		//연결 객체 생성
+		dao.connect();
+		
+		Scanner sc = new Scanner(System.in);
+	//	7번 학생 성적 입력(이름 국어 영어 수학) : 이원영 50 60 70
+		
+		int count = dao.count();
+		System.out.println();
+		do
+		{
+			System.out.printf("%d 번 학생 성적 입력(이름 국어 영어 수학) : ",(++count));
+			String name = sc.next();
+			int kor = sc.nextInt();
+			int eng = sc.nextInt();
+			int mat = sc.nextInt();
+			
+			//dto생성 및 set
+			ScoreDTO dto = new ScoreDTO();
+			dto.setName(name);
+			dto.setKor(kor);
+			dto.setEng(eng);
+			dto.setMat(mat);
+			
+			int result = dao.add(dto);
+			
+			if (result>0)
+			{
+				System.out.println("데이터 입력 성공");
+				
+			}
+			
+			System.out.print("그만 입력하시려면 Y : ");
+			String response = sc.next();
+			if(response.equalsIgnoreCase("Y"))
+			{
+				break;
+			}
+			
+			
+		} while (true);
+	
+	}
+
+}

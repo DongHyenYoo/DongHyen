@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest008.html</title>
+<style type="text/css">
+
+	html, body {width: 100%; height: 100%; margin: 0; padding: 0;}
+	.map_wrap {position: relative; overflow: hidden; width: 100%; height: 450px;}
+	.radius_border {border: 1px solid #919191; border-radius: 5px;}
+	.custom_typecontrol{position: absolute; top: 10px; right: 10px; overflow: hidden; width: 130px; height: 30px;
+	margin: 0; padding 0; z-index: 1; font-size: 12px; font-family: '맑은고딕'}
+	.custom_typecontrol span{display: block; width: 65px; height: 30px; float: left; text-align: center;
+	line-height: 30px; cursor: pointer;}
+	.custom_typecontrol .btn{background: #fff; background: linear-gradient(#fff, #e6e6e6);}
+	.custom_typecontrol .btn:hover {background: #f5f5f5; background: linear-gradient(#f5f5f5, #e3e3e3);}
+	.custom_typecontrol .btn:active {background: #e6e6e6; background: linear-gradient(#e6e6e6, #fff);}
+
+</style>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+
+<script type="text/javascript">
+
+function initialize()
+{
+	
+	container = document.getElementById("map");
+	
+	options =
+		{
+			center : new kakao.maps.LatLng(37.556556 , 126.919550),   //풍성빌딩
+			level : 3,
+			
+		};
+	
+	//지도를 그릴 div와 옵션을 넘겨주며 지도 그려내기
+	map = new kakao.maps.Map(container, options);
+	
+}
+
+</script>
+
+</head>
+<body onload="initialize()">
+
+
+
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+
+<div>
+	
+	<h1>Kakao Map 사용자 정의 컨트롤 구성</h1>
+	<hr />
+</div>
+
+<div class="map_wrap">
+ 
+ 	<!-- 지도를 그릴 div 공간 확보(지정) -->
+ 	<div id="map" style="width:100%; height: 900px; position: relative; overflow: hidden;"></div>
+
+	<div class="custom_typecontrol radius_border">
+	<span id = "btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+	<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+	</div>
+	
+	<!-- 지도 확대 축소 컨트롤 div -->
+	<div class="custom_zoomcontrol radius_border">
+	<span onclick="zoomIn()">
+		<img alt="확대" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png
+		">
+	</span>
+	<span onclick="zoomOut()">
+		<img alt="축소" src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png
+		">
+	</span>
+	
+	</div>
+	
+</div>
+<br>
+</body>
+</html>

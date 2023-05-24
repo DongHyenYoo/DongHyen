@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest10.html</title>
+<style type="text/css">
+   
+   body, div, span, table, th, td
+   {
+      font-size: 12px;
+   }
+   
+   #list
+   {
+      border: 1px solid gray;
+      border-collapse: collapse;
+      width: 800px;
+   }
+   
+   #list th
+   {
+      width: 152px;
+   }
+   
+   #list td
+   {
+      width: 162px;
+   }
+   
+   #list th, #list td
+   {
+      border: 1px solid gray;
+      padding: 3px;
+      
+   }
+   
+   
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+function add()
+{
+	
+	var item = document.getElementById("item").value; //제목
+	
+	var week = parseInt(document.getElementById("week").value); //요일(0~3)
+	var start = parseInt(document.getElementById("start").value); //시작 시간
+	var end = parseInt(document.getElementById("end").value); //종료 시간
+	
+	var color = document.getElementById("color").value; //색상(문자열)
+	
+	var tds = document.getElementsByTagName("td");		//모든 td를 의미하며 배열로 가져옴s
+
+	//확인
+	//alert(tds.length);
+	//32
+	
+	
+	//확인
+	//tds[1].style.backgroundColor = "red";
+	//tds[1].innerText = "1번째 td";
+	
+	//확인
+	/* for (var i = 0; i < tds.length; i++)
+	{
+		tds[i].style.backgroundColor = "blue";
+		tds[i].innerText = i;
+	} */
+	//for (var i = 1; i < tds.length; i+=4)
+	//for (var i = 2; i < tds.length; i+=4)
+	//규칙이 존재함 
+	//월은 4씩증가
+	//요일은 0~ 3
+
+	//월요일(0) 시작시간(1) 일때 i값은 0이 나와야한다.
+	//단 4씩 증가하므로 *4도 되야함
+	
+	/* [0]  [0] = 0
+	   [0]   [1] = 4
+	  [0]  [2] = 8
+	  [0]  [3] = 12
+	
+     	[1]  [1] = 4
+	[1]  [2] = 8
+	 */
+	for (var i = week+(start-1)*4; i < week+(end-1)*4; i+=4)
+	{
+		tds[i].style.backgroundColor = color;
+		tds[i].innerText = item;
+	}
+	
+
+}
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>일정 관리</h1>
+	<hr>
+</div>
+
+
+<table class="tbl" border="1" id="list">
+	<tr>
+		<th>&nbsp;</th>
+		<th>월</th>
+		<th>화</th>
+		<th>수</th>
+		<th>목</th>
+	</tr>
+	<tr>
+		<th>11:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>12:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>13:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>14:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>15:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>16:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>17:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>18:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<br>
+
+<div style="margin-top: 20px">
+	<label for="item">제목</label>
+	<input type="text" id="item">
+	<br>
+	
+	<label for="week">요일</label>
+	<select id="week">
+		<option value="0">월요일</option>
+		<option value="1">화요일</option>
+		<option value="2">수요일</option>
+		<option value="3">목요일</option>
+	</select>
+	<br>
+	
+	<label for="start">시간</label>
+	<select id="start">
+		<option value="1">11:00</option>
+		<option value="2">12:00</option>
+		<option value="3">13:00</option>
+		<option value="4">14:00</option>
+		<option value="5">15:00</option>
+		<option value="6">16:00</option>
+		<option value="7">17:00</option>
+		<option value="8">18:00</option>
+	</select>
+	~
+	<select id="end">
+		<option value="1">11:00</option>
+		<option value="2">12:00</option>
+		<option value="3">13:00</option>
+		<option value="4">14:00</option>
+		<option value="5">15:00</option>
+		<option value="6">16:00</option>
+		<option value="7">17:00</option>
+		<option value="8">18:00</option>
+	</select>
+	<br>
+	
+	<label for="color">색상</label>
+	<select id="color">
+		<option value="#ff3300">빨강</option>
+		<option value="#7799ff">파랑</option>
+		<option value="#ffff33">노랑</option>
+		<option value="#808080">검정</option>
+	</select>
+	<br>
+	
+	<input type="button" value="일정 추가하기" style="margin-top: 20px;" onclick="add()">
+</div>
+		
+	
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	
+
+</style>
+
+<script type="text/javascript">
+
+
+function scheduling()
+{
+	
+	//제목받기
+	
+	var subject = document.getElementById("schedule").value;
+	var days = document.getElementById("days");
+	var selectDays = days.options[days.selectedIndex].value;
+	//alert(selectDays); mon
+	
+	var time = document.getElementById("time1");
+	
+	var firstTime = document.getElementById("time1");
+	firstTime = firstTime.options[firstTime.selectedIndex].value;
+	//alert(firstTime);
+	var secTime = document.getElementById("time2");
+	secTime = secTime.options[secTime.selectedIndex].value;
+	//alert(secTime);
+	
+	var color = document.getElementById("color");
+	color = color.options[color.selectedIndex].value;
+	//alert(color);
+	
+	
+	//테이블 추가
+	if(tableNode==null)
+	{
+	var tableNode = document.getElementById("scheduleTable");
+	}
+	tableNode.border="1 solid gray";
+	//alert(tableNode);
+	var trNode = document.createElement("tr");
+	//alert(trNode);
+	
+	
+	//th부분
+	trNode.appendChild(createThNode("   "));
+	trNode.appendChild(createThNode("월"));
+	trNode.appendChild(createThNode("화"));
+	trNode.appendChild(createThNode("수"));
+	trNode.appendChild(createThNode("목"));
+	tableNode.appendChild(trNode);
+	//th end
+	
+	trNode = document.createElement("tr"); //tr초기화
+	
+	
+	for (var i = 0; i < time.options.length; i++)
+	{
+		
+		trNode.appendChild(createTdNode(time.options[i].value)); 
+		
+		//어쨋든 빈공간은 만들어야 되므로 현재 for 조건은 맞음
+		//다만 원하는 시간대와 원하는 날짜에 지정한 제목은 넣어야됨
+		//즉 표를 만들어가면서 사용자가 선택한 날짜, 시간과 일치할때 특정 범위에 
+		//입력을 해야함 
+		//사용자의 선택시간은 if문으로 내부반복문에서 check 이를위해 time.option[i].value == firstTime 이런식으로 하면될듯
+		
+		
+		for (var j = 0; j < 4; j++)
+		{
+			if((firstTime==time.options[i].value && j==selectDays) || (secTime==time.options[i].value && j==selectDays)   )
+			{
+				trNode.appendChild(createTdNode(subject));
+				
+			}
+			else{
+				trNode.appendChild(createTdNode(" "));
+			}
+			tableNode.appendChild(trNode);
+		}
+		
+		trNode = document.createElement("tr"); //tr초기화
+	}
+	
+	
+	
+	
+	tableNode.appendChild(trNode);
+	
+	
+	
+}
+
+
+function createTdNode(val)
+{
+	var str = document.createTextNode(val);
+	var tdNode = document.createElement("td");
+	tdNode.appendChild(str);
+	return tdNode;
+	
+}
+
+function createThNode(val)
+{
+	var str = document.createTextNode(val);
+	var thNode = document.createElement("th");
+	thNode.appendChild(str);
+	thNode.width="100px";
+	thNode.id=val;
+	return thNode;
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+
+<div>
+<table id="scheduleTable">
+</table>
+
+
+</div>
+
+
+<div>
+<form>
+제목 <input type="text" id="schedule" value="점심약속"/><br>
+
+날짜 <select name="days" id="days">
+		<option selected="selected" value="0">월</option>
+		<option value="1">화</option>
+		<option value="2">수</option>
+		<option value="3">목</option>
+		</select>
+		<br>
+시간 <select name="time1" id="time1">
+		<option selected="selected" value="11:00">11:00</option>
+		<option value="12:00">12:00</option>
+		<option value="13:00">13:00</option>
+		<option value="14:00">14:00</option>
+		<option value="15:00">15:00</option>
+		<option value="16:00">16:00</option>
+		<option value="17:00">17:00</option>
+		<option value="18:00">18:00</option>
+		</select>
+		-
+		<select name="time2" id="time2">
+		<option value="11:00">11:00</option>
+		<option value="12:00" selected="selected">12:00</option>
+		<option value="13:00">13:00</option>
+		<option value="14:00">14:00</option>
+		<option value="15:00">15:00</option>
+		<option value="16:00">16:00</option>
+		<option value="17:00">17:00</option>
+		<option value="18:00">18:00</option>
+		</select>
+		
+		<br>
+색상 <select name="color" id="color">
+		<option>빨강</option>
+		<option>검정</option>
+		<option>파랑</option>
+		<option>민트</option>
+		</select>
+		<br><br>
+		
+		
+<button type="button" onclick="scheduling()">일정 추가하기</button>
+		
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest016.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   // 페이지 로드 됐을 때 이 함수안의 내용은 전역변수처럼 쓰임
+   function initialize()
+   {
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556, 126.919550);
+      
+      options =
+      {
+         center: mapCenter
+         , level: 3  
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //마커 옵션 구성 → 교육원 길건너 스타벅스
+      markerCenter = new kakao.maps.LatLng(37.556856, 126.919990);
+      
+      //마커 생성
+      marker = new kakao.maps.Marker({
+    	 
+    	  position : markerCenter,
+      });
+      
+      
+      //생성된 마커 지도에 표시
+      marker.setMap(map);
+      
+      
+      //check~!!!
+      //인포윈도우 옵션 구성
+      var iwContent = "<div style='padding:5px;'>";
+      iwContent += "스타벅스 <br>";
+      iwContent += "<a href='https://map.kakao.com/link/map/스타벅스,37.556856, 126.919990'style='color:blue;' target='_blank'>큰지도보기</a>";
+      iwContent += "<a href='https://map.kakao.com/link/to/스타벅스,37.556856, 126.919990'style='color:blue;' target='_blank'>큰지도보기</a>";
+      iwContent += "</div>";
+      
+      //check~!!!
+      //인포윈도우 생성
+      var infowindow = new kakao.maps.InfoWindow({
+    	  
+    	  position: markerCenter,
+    	  content : iwContent
+      });
+      
+      
+      
+      //생성된 인포윈도우가 마커에 표시되도록 설정
+      infowindow.open(map, marker);
+      //-- open()함수를 호출하는 과정에서
+      //   두번째 파라미터 값(marker)을 설정하지 않을 경우
+      //   마커 없이 지도 위에 직접 표시
+      
+   }
+      
+      
+      </script>
+</head>
+<body onload="initialize()">
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<div>
+   <h1>Kakao Map 이동 가능한 마커 생성</h1>
+   <hr>
+</div>
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 350px;"></div>
+<br>
+
+</body>
+</html>

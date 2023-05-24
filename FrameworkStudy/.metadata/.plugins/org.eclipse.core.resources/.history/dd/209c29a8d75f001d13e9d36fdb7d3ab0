@@ -1,0 +1,9 @@
+package com.test.src;
+
+import java.sql.Connection;
+
+public class OracleDAO
+{
+	private Connection conn;
+
+}

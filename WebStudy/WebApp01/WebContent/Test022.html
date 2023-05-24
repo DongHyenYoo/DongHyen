@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test022.html</title>
+</head>
+<body>
+
+<div>
+	<h1>체크박스 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<p>오늘 점심으로 먹은 밥종류</p>
+		
+		라벨로 묶으면 글자를 찍어도 체크가 들어간다.
+		<label>
+		<input type="checkbox" name="foodSelect1" value="1" id="test1">쌀밥
+		</label>
+		
+		
+		<input type="checkbox" name="foodSelect1" value="2" id="test2">
+		<label for="test2">흑미</label>
+		
+		<input type="checkbox" name="foodSelect1" value="3" id="test3">백미
+		<input type="checkbox" name="foodSelect1" value="4" id="test4">잡곡
+	<!-- 	html로 결과가 전달될때 name과 value값 으로 전달되기에 
+		value와 id는 다 제각각 이어야하고 name은 같아도된다. 즉 서버에서 결과값을 구분할수있게 만들어야한다.
+		
+		 -->
+		
+		<p>오늘 점심으로 먹은 메뉴는?</p>
+		
+		<input type="checkbox" name="foodSelect2" value="1" id="chk1">밥
+		<input type="checkbox" name="foodSelect2" value="2" id="chk2">미역국
+		<input type="checkbox" name="foodSelect2" value="3" id="chk3">김치찜
+		<input type="checkbox" name="foodSelect2" value="4" id="chk4">달걀말이
+		<input type="checkbox" name="foodSelect2" value="5" id="chk5">밥
+	
+		label for를 쓴다면
+		
+		<br><br><br><br><br><br><br>
+		
+		<label for="chk2">ㅇ</label>
+	
+	
+	</form>
+</div>
+
+</body>
+</html>

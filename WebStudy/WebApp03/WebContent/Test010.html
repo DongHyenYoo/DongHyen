@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test010.html</title>
+
+<script type="text/javascript">
+
+	message = "<h1>Hello~!!!</h1>";
+	document.write(message);
+	alert(message);
+
+</script>
+
+<!-- 아래의 script 영역안에 코드를 적으면 불러온 
+코드와 적은 코드 전부 훼손된다 -->
+<!-- 
+message는 위의 스크립트 영역에만 선언되어있으나 
+아래의 다른 스크립트에서도 해당 변수를 볼수있다.
+ -->
+<script type="text/javascript" src="js/alertTest.js">
+</script>
+
+<script type="text/javascript">
+	
+	//Date 내장 객체 : 현재 시스템의 날짜와 시간 객체
+	// Date dt = new Date();
+	// String dt = date.toString() 과 같은 구문이라고 생각하면 된다.
+	dt = String(Date());
+	document.write(dt);
+
+</script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

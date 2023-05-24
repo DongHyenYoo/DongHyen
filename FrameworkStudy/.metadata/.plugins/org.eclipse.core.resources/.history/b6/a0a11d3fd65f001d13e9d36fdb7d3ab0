@@ -1,0 +1,12 @@
+package com.test.conn;
+
+import java.sql.Connection;
+
+public class DBConn
+{
+	private Connection conn;
+	
+	public 
+	
+
+}

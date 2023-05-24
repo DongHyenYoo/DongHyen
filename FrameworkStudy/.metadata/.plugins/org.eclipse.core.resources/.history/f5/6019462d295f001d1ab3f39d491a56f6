@@ -1,0 +1,40 @@
+/*=====================================
+ Main.java
+ -클래스
+ -main() 메소드가 포함된 테스트 클래스
+======================================= */
+
+package com.test.spr;
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		
+		
+		//RecordImpl1(Record)객체 생성 과정
+		//-- RecordView 입장에서의 의존 객체(dependency)
+		
+		Record rec1 = new RecordImpl1();
+		
+		//RecordImpl2(Record) 객체 생성 과정
+		//--RecordView 입장에서의 의존 객체(dependency)
+		
+		Record rec2 = new RecordImpl2();
+		
+		//RecordImpl3(Record) 객체 생성 과정
+		//--RecordView 입장에서의 의존 객체(dependency)
+		Record rec3 = new RecordImpl3();		
+		
+		RecordView view = new RecordViewImpl1();
+		
+		view.setRecord(rec2);
+		
+		view.input();
+		view.output();
+		
+		
+		
+	}
+
+}

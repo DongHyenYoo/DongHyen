@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest019.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   function initialize()
+   {
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556 , 126.919550);
+      options =
+      {
+            center: mapCenter,
+            level: 3,
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //다중 마커 객체들을 포함하고 있을 배열
+      markers = [];
+      
+      addMarkers(mapCenter);
+      
+      
+      //check
+      //최초 생성 이후
+      //지도를 클릭했을 경우 해당 위치에 마커를 추가할 수 있도록 이벤트 등록
+      kakao.maps.event.addListener(map,"click", function()
+	{
+    	  //클릭한 지점에 마커 표시
+    	  addMarkers(mouseEvent.LatLng);
+		
+	} );
+      
+   }
+   
+   
+   function addMarkers(position)
+{
+	   //마커 생성
+	   marker = new kakao.maps.Marker({
+		   
+		   position : position,
+	   });
+	
+	   //생성한 마커가 지도에 표시될 수 있도록 설정
+	   marker.setMap(map);
+	   
+	   //생성된 마커를 markers 배열에 포함
+	   markers.push(marker);
+}
+
+   
+   
+   
+   
+</script>
+</head>
+<body onload="initialize()">
+
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<!-- ○ 발급받은 App key -->
+<!-- b0adb6cf684c4c502462a6673bf822bf -->
+<!-- ○ 교육원 길건너 스타벅스 -->
+<!-- 37.55685652581343, 126.91999059401587 -->
+<div>
+   <h1>Kakao Map 인포윈도우 구성</h1>
+   <hr />
+</div>
+<!-- 지도를 그릴 div 공간 확보(지정)    -->
+<div id="map" style="width:100%; height:400px;"></div>
+<br>
+
+<p>
+   <button type="button" onclick="hideMarkers()">마커 숨기기</button>
+   <button type="button" onclick="showMarkers()">마커 보이기</button>
+
+</p>
+
+
+</body>
+</html>

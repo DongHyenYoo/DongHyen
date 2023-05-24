@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test024.html</title>
+</head>
+<body>
+
+
+<div>
+	<h1>전송,취소 버튼 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<!-- 데이터 전송 및 페이지 요청 -->
+	<form action="Test025.html"> <!--  액션에 submit이라는 액션이 발생하면 데이터를 주는 행위+ 
+						해당 페이지와 만나게 해달라는 요청 2개를 한번에 전송한다. -->
+					<!-- submit이 발생하면 현재페이지에서 입력받은 내용을 action에 들어있는 페이지에 
+					전송하는 동시에 해당 페이지로 이동시켜달라는 요청을 동시에 요청한다.
+					보통의 400번대 에러는 클라이언트의 에러
+					서버쪽 에러는 500번대 에러다. -->
+	
+	<!-- id로 부여한 속성은 : script에서 가져와서 수행한다.
+	submit은 name속성을 통해 전송된다. -->
+	
+	이름(*) <input type="text" name="name" size="15" maxlength="8"><br>
+	이메일 <input type="text" name="name" size="15" maxlength="8"><br>
+	
+	하고픈말<br>
+	<textarea rows="10" cols="50" name="comment"></textarea>
+	<br><br>
+	
+	
+	<input type="submit" value="전송하기" name="submitBtn">
+	<input type="reset" value="다시쓰기" name="resetBtn">
+	
+	
+	
+	
+	</form>
+	
+</div>
+
+
+</body>
+</html>

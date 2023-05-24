@@ -1,0 +1,27 @@
+package com.test.src;
+
+
+public class MemberList
+{
+	private IDAO dao;
+	
+	public MemberList() {
+		
+		dao = new OracleDAO();
+	}
+	public MemberList(String ip) {
+		dao = new MssqlDAO(ip);
+	}
+	
+	public void print()
+	{
+		for(MemberDTO dto :dao.list())
+		{
+			System.out.printf();
+		}
+		
+	}
+	
+	
+
+}

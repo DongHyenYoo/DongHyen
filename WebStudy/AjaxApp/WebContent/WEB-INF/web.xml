@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>WebApp00</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+   
+  <servlet>
+  <servlet-name>test02</servlet-name>
+  <servlet-class>com.test.ajax.Test02</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>test02</servlet-name>
+  <url-pattern>/test02.do</url-pattern>
+  </servlet-mapping>
+   
+  <!-- url-pattern 과 같은 url이 들어오면 test02(servlet-name)을찾고 
+  test02를 찾았다면 servlet-class르 가져가십쇼 라는것 이순서다
+   -->
+   
+   <servlet>
+  <servlet-name>test03</servlet-name>
+  <servlet-class>com.test.ajax.Test03</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>test03</servlet-name>
+  <url-pattern>/test03.nhn</url-pattern>
+  </servlet-mapping>
+   
+   
+   <servlet>
+  <servlet-name>test04</servlet-name>
+  <servlet-class>com.test.ajax.Test04</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>test04</servlet-name>
+  <url-pattern>/test04.do</url-pattern>
+  </servlet-mapping>
+   
+   
+   <!-- 우편번호 검색 확인 -->
+    <servlet>
+  <servlet-name>test05</servlet-name>
+  <servlet-class>com.test.ajax.Test05</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>test05</servlet-name>
+  <url-pattern>/test05.do</url-pattern>
+  </servlet-mapping>
+   
+   
+   <!-- 추천 검색어 처리 -->
+   <servlet>
+   <servlet-name>test06</servlet-name>
+   <servlet-class>com.test.ajax.Test06</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>test06</servlet-name>
+   <url-pattern>/test06.nhn</url-pattern>
+   </servlet-mapping>
+   
+   
+</web-app>

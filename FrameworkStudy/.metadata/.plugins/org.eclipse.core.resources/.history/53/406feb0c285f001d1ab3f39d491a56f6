@@ -1,0 +1,14 @@
+/*=================================4
+ RecordView.java
+  - 인터페이스
+===================================== */
+
+package com.test.spr;
+
+public interface RecordView
+{
+	public void setRecord(Record record);
+	public void input();
+	public void output();
+
+}

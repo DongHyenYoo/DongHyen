@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test029</title>
+
+<script type="text/javascript">
+	function count()
+	{
+
+		//document.getElementsByName("raioGroup"); // 배열임
+		var size = document.getElementsByName("radioGroup"); // 배열임
+		//size 사용법 size[].checked = true / false
+		//            size[].value = 1~6
+
+		var countAble = 0;
+
+		var count = document.getElementsByName("checkGroup");
+		
+		var counted = 0;
+		
+		var message = "";
+		
+		var sizeFlag = 0; //0은 사이즈를 선택 안했다는것 1은 사이즈를 선택했다는 플래그 변수
+		
+		var countFlag = 1;
+
+		/* 1.어떤 사이즈를 선택했고 그에 해당하는 정수값(선택가능한 숫자값) 가져오기
+		2.아이스크림 선택 개수를 선택할때마다 증가시키기
+		3.넘을시 alert 띄우기 */
+
+		for (var i = 0; i < size.length; i++)
+		{
+			
+		
+			if (size[i].checked)
+			{
+				countAble = Number(size[i].value); // 사이즈에 따른 선택 가능한 개수를 countAble에 담기
+				
+				//alert(size[i].value);
+				sizeFlag = 1;
+			}
+
+		}
+		
+		if(flag == 0)
+			alert("사이즈를 먼저 선택해 주세요");
+		
+		//alert(countAble);
+		//alert(count.length);// = 12
+
+		//2.아이스크림 선택 개수를 선택할때마다 증가시키기
+		for (var i = 0; i < count.length; i++)
+		{
+			if(count[i].checked)
+				{
+				counted += 1;
+				
+				
+				if(Number(counted)> Number(countAble))//선택가능한거보다 선택된것이 크다면
+					{
+					 message = "선택 가능한 개수는"+countAble+"개 입니다 ";
+					 countFlag = 0;
+					 break;
+					}
+				//message = counted+"개 선택";
+				}
+		}
+		
+		if(sizeFlag == 1 && countFlag != 1)
+		alert(message);
+		
+		
+		
+		
+
+	}
+</script>
+
+
+
+</head>
+<body>
+
+	<div>
+		<h1>자바스크립트 활용</h1>
+		<p>아이스크림 주문</p>
+		<hr>
+
+	</div>
+
+	<div>
+		<form>
+			-----사이즈 선택--------- <br>
+			<br> <label> <input type="radio" name="radioGroup"
+				id="size1" value="1">싱글(1)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size2" value="2">더블(2)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size3" value="3">파인트(3)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size4" value="4">쿼터(4)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size5" value="5">패밀리(5)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size6" value="6">하프갤런(6)<br>
+			</label> <br>
+			<br> ---- 아이스크림 종류 ---- <br>
+			<br> <label> <input type="checkbox" name="checkGroup"
+				id="c1" value="엄마" onclick="count()" />엄마는 외계인
+			</label> <label> <input type="checkbox" name="checkGroup" id="c2"
+				value="바닐" onclick="count()" />바닐라
+			</label> <label> <input type="checkbox" name="checkGroup" id="c3"
+				value="레인" onclick="count()" />레인보우 샤베트
+			</label> <label> <input type="checkbox" name="checkGroup" id="c4"
+				value="민트" onclick="count()" />민트초코 봉봉
+			</label> <br> <label> <input type="checkbox" name="checkGroup"
+				id="c5" value="아몬" onclick="count()" />아몬드 봉봉
+			</label> <label> <input type="checkbox" name="checkGroup" id="c6"
+				value="바람" onclick="count()" />바람과 함께 사라지다
+			</label> <label> <input type="checkbox" name="checkGroup" id="c7"
+				value="초코" onclick="count()" />초코나무 숲
+			</label> <label> <input type="checkbox" name="checkGroup" id="c8"
+				value="요거" onclick="count()" />요거트
+			</label> <br> <label> <input type="checkbox" name="checkGroup"
+				id="c9" value="블랙" onclick="count()" />블랙소르베
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="베리" onclick="count()" />베리베리 스트로베리
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="체리" onclick="count()" />체리 쥬빌레
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="슈팅스타" onclick="count()" />슈팅스타
+			</label>
+
+
+		</form>
+
+	</div>
+
+</body>
+</html>

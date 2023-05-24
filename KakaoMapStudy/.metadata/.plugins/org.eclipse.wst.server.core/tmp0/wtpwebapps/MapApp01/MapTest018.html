@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest018.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1a1befb5ad925396a29e0423fb1020bb"></script>
+<script type="text/javascript">
+function initialize()
+{
+   container = document.getElementById("map");
+   
+   //중심좌표 풍성빌딩
+   mapCenter = new kakao.maps.LatLng(37.556556, 126.919550);
+   options=
+   {
+         center:mapCenter,
+         level:3,
+   };
+   
+   map = new kakao.maps.Map(container, options);
+   
+   //check~!!!
+   //다중 마커를 등록할 속성 구성
+   //→ 배열 처리
+   position=
+   [
+         {
+            title: "스타벅스",
+            content: "<div><a href='https://map.kakao.com/link/from/강의장,37.556556, 126.919550/to/스타벅스,37.556856,126.919990' style='color:blue;' target='_blank'>스타벅스</a></div>",
+            latlng: new kakao.maps.LatLng(37.556556, 126.919990),
+         },
+         {
+            title:"더페이머스램",
+            content: "<div><a href='https://map.kakao.com/link/from/강의장,37.556556, 126.919550/to/더페이머스램,37.556432, 126.919742' style='color:blue;' target='_blank'>더페이머스램</a></div>",
+            latlng: new kakao.maps.LatLng(37.556432, 126.919742),
+         },
+         {
+            title:"메가커피",
+            content: "<div><a href='https://map.kakao.com/link/from/강의장,37.556556, 126.919550/to/메가커피,37.556554, 126.920220' style='color:blue;' target='_blank'>메가커피</a></div>",
+            latlng: new kakao.maps.LatLng(37.556554, 126.920220),
+         },
+         {
+            title:"이디아",
+            content: "<div><a href='https://map.kakao.com/link/from/강의장,37.556556, 126.919550/to/이디아,37.556223, 126.920002' style='color:blue;' target='_blank'>이디아</a></div>",
+            latlng: new kakao.maps.LatLng(37.556223, 126.920002),
+         },
+         {
+            title:"소림커피",
+            content: "<div><a href='https://map.kakao.com/link/from/강의장,37.556556, 126.919550/to/소림커피,37.556259, 126.919442' style='color:blue;' target='_blank'>소림커피</a></div>",
+            latlng: new kakao.maps.LatLng(37.556259, 126.919442),
+         }
+   ];
+   
+   /*
+   marker = new kakao.maps.Marker(
+   {
+         map: 대상맵(→ 마커가 표시되는 지도),
+         position: 위치(→ 마커가 표시되는 위치),
+         title: 마커타이들,
+         image: 마커이미지,
+   });
+   */
+   
+   //마커 이미지 구성 
+   imageSrc= "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"
+   imageSize= new kakao.maps.Size(24,35);
+   
+   //check~!!!
+   //다중 마커 생성 → 반복문 구성
+   for(var i=0; i<position.length; i++)
+   {   
+      //alert("확인"+i);
+      //alert(position[i].latlng + "제목:"+position[i].title);
+      /* 
+      var marker = new kakao.maps.Marker(
+      {
+         map: map,
+         position: position[i].latlng,
+         title: position[i].title,
+         image: imageSrc,
+      }); */
+      //marker.setMap(map);
+       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+       
+      var iwRemovable = true;
+      
+      //인포윈도우 생성
+      var infowindow = new kakao.maps.InfoWindow({
+         content:position[i].content,
+         removable:iwRemovable,
+         //--『removable』속성을 『true』로 설정할 경우
+         //   인포윈도우 창을 닫을 수 있는 버튼이 활성화된다.
+      });
+       // 마커를 생성합니다
+       var marker = new kakao.maps.Marker({
+           map: map, // 마커를 표시할 지도
+           position: position[i].latlng, // 마커를 표시할 위치
+           title : position[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+           image : markerImage // 마커 이미지 
+       });
+       /*kakao.maps.event.addListener(marker, "click", function()
+             {
+                infowindow.open(map,marker,infowindow);   
+             });
+       */
+       kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
+       
+   }
+
+   // 인포윈도우를 표시하는 클로저를 만드는 함수
+   function makeOverListener(map, marker, infowindow) {
+       return function() {
+           infowindow.open(map, marker);
+       };
+   }
+
+
+      /*kakao.maps.event.addListener(marker, "click", function()
+      {
+         infowindow.open(map,marker,infowindow);   
+      });*/ 
+   //check~!!!
+   //마커에 클릭 이벤트 등록
+   //kakao.maps.event.addListener(map, "click", function())
+   //kakao.maps.event.addListener(marker, "click", 기능)
+}
+</script>
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=1a1befb5ad925396a29e0423fb1020bb -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+<!-- ○ 교육원 길건너 스타벅스 -->
+<!-- 37.55685652581343, 126.91999059401587 -->
+
+<!-- ○ 홍대입구역 8번출구 스타벅스 -->
+<!-- 37.556719, 126.924138 -->
+<div>
+   <h1>Kakao Map 인포윈도우 구성</h1>
+   <hr />
+</div>
+<!-- 지도를 그릴 div 공간 확보(지정)    -->
+<div id="map" style="width:100%; height:400px;"></div>
+<br>
+
+
+</body>
+</html>

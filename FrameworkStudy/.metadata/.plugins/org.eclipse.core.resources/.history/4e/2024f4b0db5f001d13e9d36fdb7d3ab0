@@ -1,0 +1,49 @@
+package com.test.src;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+public class MemberList implements
+{
+	public ArrayList<MemberDTO> list()
+	{
+		ArrayList<MemberDTO> result = new ArrayList<MemberDTO>();
+		
+		//sql 문 생성
+		String sql="SELECT ID, NAME, TEL, EMAIL FROM TBL_MEMBERLIST";
+		
+		try
+		{
+			//작업객체 생성
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			//실행
+			ResultSet rs =  pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				MemberDTO dto = new MemberDTO();
+				
+				dto.setId(rs.getString("ID"));
+				dto.setName(rs.getString("NAME"));
+				dto.setTel(rs.getString("TEL"));
+				dto.setEmail(rs.getString("EMAIL"));
+				
+				result.add(dto);
+			}
+			
+			rs.close();
+			pstmt.close();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+			// TODO: handle exception
+		}
+		
+		return result;
+	}
+	
+
+}

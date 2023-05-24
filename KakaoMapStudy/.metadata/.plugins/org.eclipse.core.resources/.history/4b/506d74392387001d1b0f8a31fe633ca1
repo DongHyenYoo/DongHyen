@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="initialize()">
+
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+</body>
+</html>

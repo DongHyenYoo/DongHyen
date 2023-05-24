@@ -1,0 +1,10 @@
+package com.test.src;
+
+
+public class MemberList
+{
+	private IDAO dao;
+	
+	
+
+}

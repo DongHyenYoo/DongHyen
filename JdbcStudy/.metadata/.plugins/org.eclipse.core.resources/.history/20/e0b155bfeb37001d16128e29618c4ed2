@@ -1,0 +1,29 @@
+package com.test;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MemberMain
+{
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+		MemberDAO md = new MemberDAO();
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		
+		list = md.list();
+		
+		Iterator<MemberDTO> it = list.iterator();
+		
+		while (it.hasNext())
+		{
+			MemberDTO dto = (MemberDTO)it.next();
+			System.out.println(dto.getSid());
+			System.out.println(dto.getName());
+			System.out.println(dto.getTel());
+		}
+		
+		
+		
+	}
+}

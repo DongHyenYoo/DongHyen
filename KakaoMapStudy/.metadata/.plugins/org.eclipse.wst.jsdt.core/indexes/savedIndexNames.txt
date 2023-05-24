@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\KakaoMapStudy\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+852604060.index
+2668750007.index
+305650071.index
+2060739083.index
+210618700.index
+9426803.index
+4198604786.index

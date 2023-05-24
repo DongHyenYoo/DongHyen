@@ -1,0 +1,9 @@
+package com.test.src;
+
+public class MemberDTO implements IDAO
+{
+	private String id, name, tel, email;
+
+	
+	
+}

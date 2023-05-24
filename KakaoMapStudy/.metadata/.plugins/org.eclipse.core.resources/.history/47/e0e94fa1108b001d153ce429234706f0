@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest018.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+
+<script type="text/javascript">
+
+function initialize()
+{
+	
+	container = document.getElementById("map");
+	
+	mapCenter = new kakao.maps.LatLng(37.556556 , 126.919550);
+	
+	options = {
+			center : mapCenter,
+			level : 3,
+	};
+	
+	map = new kakao.maps.Map(container, options);
+	
+	//check~!!
+	//다중 마커를 등록할 속성 구성
+	//→배열 처리
+	positions = [{title : "스타벅스",
+		         latlng : new kakao.maps.LatLng(37.556856, 126.919990),
+	},
+	{
+		title:"더페이머스램",
+		latlng : new kakao.maps.LatLng(37.556432, 126.919742),
+	},
+	{
+		title:"메가커피",
+		latlng : new kakao.maps.LatLng(37.556554, 126.920220),
+	},
+	{
+		title: "이디야",
+		latlng : new kakao.maps.LatLng(37.556223, 126.920002),
+	}, 
+	{
+		title:"소림커피",
+		latlng : new kakao.maps.LatLng(37.556259, 126.919442),
+	}];
+	
+	
+	//마커 이미지 구성
+	imageSrc ="markerGif05.gif";
+	imageSize = new kakao.maps.Size(24, 35);
+	imageOption = {offset: new kakao.maps.Point(27, 69)};
+	
+	markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+	
+	//map : 대상맵(→마커가 표시되는 지도),
+	  //position: 위치 (→ 마커가 표시되는 위치),
+	  //title: 마커타이틀,
+	  //image: 마커 이미지,
+	
+	//check
+	//다중 마커 생성 → 반복문 구성
+	for (var i = 0; i < positions.length; i++)
+	{
+		//alert(""); 5번
+		markerCenter = new kakao.maps.LatLng(positions[i].latlng);
+		marker = new kakao.maps.Marker({
+			
+			map : map,
+			position : markerCenter,
+			title : position[i].title,
+			image : markerImage,
+		});
+		
+	}
+}
+
+
+</script>
+
+</head>
+<body onload="initialize()">
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<div>
+   <h1>Kakao Map 다중 마커 구성</h1>
+   <hr>
+</div>
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 350px;"></div>
+<br>
+
+</body>
+</html>

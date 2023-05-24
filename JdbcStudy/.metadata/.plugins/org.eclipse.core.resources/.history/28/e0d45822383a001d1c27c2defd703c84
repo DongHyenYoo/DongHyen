@@ -1,0 +1,71 @@
+package com.test;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+import com.util.DBConn;
+
+public class Test002
+{
+	public static void main(String[] args)
+	{
+		
+		try
+		{
+			Scanner sc = new Scanner(System.in);
+			Connection conn = DBConn.getConnection();
+			
+			
+			do
+			{
+				System.out.print("\n번호 입력(-1 종료) : ");
+				String sid = sc.next();
+				
+				if(sid.equals("-1"))
+					break;
+				
+				System.out.print("이름 입력: ");
+				String name = sc.next();
+				System.out.print("이름 입력: ");
+				String tel = sc.next();
+				
+				if(conn != null)
+				{
+					System.out.println(">> 데이터 베이스 연결 성공!");
+				}
+				try
+				{
+					// ※작업 객체 생성전에 쿼리문 준비
+					String sql = "INSERT INTO TBL_MEMBER(SID, NAME, TEL)"
+							+ " VALUES(?, ?, ?)";
+					
+					//작업 객체 생성(PreparedStatement)
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					//작업 객체 생성 과정에서 쿼리문 전달
+					
+					//execute전에 매개변수 전달
+					pstmt.setInt(1, Integer.parseInt(sid));
+					pstmt.setString(2, name);
+					pstmt.setString(3, tel);
+					
+					
+					
+				} catch (Exception e2)
+				{
+					System.out.println(e2.toString());
+					// TODO: handle exception
+				}
+				
+				
+				
+			} while (true);
+			
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+			// TODO: handle exception
+		}
+	}
+}

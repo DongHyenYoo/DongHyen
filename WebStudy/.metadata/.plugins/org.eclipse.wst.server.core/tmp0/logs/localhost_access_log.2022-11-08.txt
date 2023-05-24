@@ -1,0 +1,16 @@
+127.0.0.1 - - [08/Nov/2022:09:14:19 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:14:19 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 549
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:14:20 +0900] "GET /BootStrapApp/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:14:20 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:14:55 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 574
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:14:56 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:15:06 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 599
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:15:07 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:15:07 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:15:22 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 610
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:17:42 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 687
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:17:43 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:19:23 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 898
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:20:25 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 914
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:21:50 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 1408
+0:0:0:0:0:0:0:1 - - [08/Nov/2022:09:24:50 +0900] "GET /BootStrapApp/BootTest08.html HTTP/1.1" 200 1841

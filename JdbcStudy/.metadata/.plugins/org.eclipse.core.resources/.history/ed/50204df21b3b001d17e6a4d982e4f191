@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이력서</title>
+</head>
+<body>
+<h1 align = "center">이력서</h1>
+<table border="1" align = "center">
+<tr>
+<td rowspan="4"><img src="Test.jpg" width = "80" height="80" alt="테스트"></td> <td colspan="4" align="center"><strong>이력서<strong></strong></td>
+</tr>
+
+<tr>
+ <td rowspan="2">성명</td> <td>한글 : 유동현</td> <td>전화번호</td> <td> 02-792-0000</td> 
+</tr>
+
+<tr>
+ <td>영문 : YooDongHyen</td> <td>휴대전화</td> <td>010-3578-3912</td>
+</tr>
+
+<tr>
+ <td>주소</td> <td colspan="3">서울시 용산구 한남대로</td>
+</tr>
+
+<tr>
+ <td rowspan = "3" bgcolor="#50BCDF">학력</td> <td>기&nbsp;간</td> <td colspan="2">학&nbsp;교&nbsp;명</td> <td>전&nbsp;공&nbsp;분&nbsp;야</td>
+</tr>
+
+<tr>
+ <td>2011 ~ 2013</td>  <td colspan="2">선린인터넷 고등학교(졸)</td> <td>통신</td>
+</tr>
+
+<tr>
+ <td>2013 ~ 2019</td> <td colspan="2">한국 항공대학교(졸)</td> <td>항공재료공학과</td>
+</tr>
+
+
+<tr>
+ <td rowspan = "7" bgcolor="#50BCDF">경험</td> <td>기&nbsp;간</td> <td colspan="2">근&nbsp;무&nbsp;처</td> <td>직급</td>
+</tr>
+
+<tr>
+ <td>2012 ~ 2014</td>  <td colspan="2">도산대로 탐앤탐스</td> <td>정직원</td>
+</tr>
+
+<tr>
+ <td>2016 ~ 2016</td> <td colspan="2">둥둥섬 루프탑 2회</td> <td>행사요원</td> 
+</tr>
+
+<tr>
+ <td>2016 ~ 2016</td> <td colspan="2">잠실 롯데타워 불꽃축제</td> <td>행사요원</td> 
+</tr>
+
+<tr>
+ <td>2016 ~ 2017</td> <td colspan="2">양재 시민의숲 캠핑장 아르바이트</td> <td>아르바이트</td> 
+</tr>
+
+<tr>
+ <td>2017 ~ 2018</td> <td colspan="2">이태원 베스킨 라빈스</td> <td>아르바이트</td> 
+</tr>
+
+<tr>
+ <td>2020 ~ 2022</td> <td colspan="2">홍콩반점</td> <td>아르바이트</td> 
+</tr>
+
+
+
+
+</table>
+</body>
+</html>

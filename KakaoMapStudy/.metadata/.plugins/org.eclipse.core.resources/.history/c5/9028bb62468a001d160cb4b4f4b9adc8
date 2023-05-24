@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest009.html</title>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+
+
+<script type="text/javascript">
+	
+	function initialize()
+	{
+		
+		container = document.getElementById("map");
+		options =
+			{
+				center: new kakao.maps.LatLng(37.556556 , 126.919550),
+				level : 3
+				//draggable : false
+				// -- 지도 생성 시 지도 이동을 막으려면
+				// 『draggable: false』 옵션을 추가한다.
+			};
+		
+		map = new kakao.maps.Map(container, options);
+	}
+	
+	
+	function setDragable(dragable)
+	{
+		//확인
+		//alert(dragable);
+		//--==>> false / true
+		
+		map.setDraggable(dragable);
+		
+		
+	}
+
+</script>
+
+</head>
+<body onload="initialize()">
+
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+
+<div>
+	
+	<h1>Kakao Map 지도 정보 얻어내기</h1>
+	<hr />
+</div>
+
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width:100%; height:350px;"></div>
+<br>
+
+<div>
+	<p>
+		<button type="button" onclick="setDraggable(false)">드래그 제한(불가)</button>
+		<button type="button" onclick="setDraggable(true)">드래그 허용(가능)</button>
+</div>
+
+
+</body>
+</html>

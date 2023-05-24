@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+	<h1>※기능 적용 키 -> Ctrl + E</h1>
+	<hr>
+</div>
+
+0.html 기본
+!
+<!-- <!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+ --></html>
+
+1.태그 선택자
+div
+<div></div>
+<p></p>
+table
+<table></table>
+a
+<a href="d"></a>
+img
+<img src="" alt="" />
+div{재미}
+<div>재미</div>
+
+
+2.아이디 선택자
+div#box
+<div id="box"></div>
+
+#box
+<div id="box"></div>
+
+#box{aaa}
+<div id="box">aaa</div>
+
+table#tbl
+<table id="tbl"></table>
+
+
+3.클래스 선택자
+
+div.items
+<div class="items"></div>
+
+div.items{aaa}
+<div class="items">aaa</div>
+
+.items
+<div class="items"></div>
+
+.items{bbb}
+<div class="items">bbb</div>
+
+4.조합
+div#item1.items
+<div id="item1" class="items"></div>
+
+div#item1.items.box.control
+<div id="item1" class="items box control"></div>
+
+div#item1.items.box{aaa}
+<div id="item1" class="items box">aaa</div>
+
+#item1.items.box{bbb}
+<div id="item1" class="items box">bbb</div>
+
+
+5. 속성 선택자
+
+div[title]
+<div title=""></div>
+
+div[title='test']
+<div title="test"></div>
+
+a[href='www.naver.com' title='네이버']
+<a href="www.naver.com" title="네이버"></a>
+
+a[href='www.naver.com' title='네이버']{네이버 바로가기}
+<a href="www.naver.com" title="네이버">네이버 바로가기</a>
+
+6.PCDATA
+div{박스}
+<div>박스</div>
+
+a{홈페이지로 이동}
+<a href="">홈페이지로 이동</a>
+
+p{문단내용기술}
+<p>문단내용기술</p>
+
+7.반복 생성
+div*5
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+img[src=image/dog.png]*5
+<img src="image/dog.png" alt="" />
+<img src="image/dog.png" alt="" />
+<img src="image/dog.png" alt="" />
+<img src="image/dog.png" alt="" />
+<img src="image/dog.png" alt="" />
+
+.box{box}*5
+<div class="box">box</div>
+<div class="box">box</div>
+<div class="box">box</div>
+<div class="box">box</div>
+<div class="box">box</div>
+
+#box$*5
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4"></div>
+<div id="box5"></div>
+
+
+img[src=images/dog$.png]*5
+<img src="images/dog1.png" alt="" />
+<img src="images/dog2.png" alt="" />
+<img src="images/dog3.png" alt="" />
+<img src="images/dog4.png" alt="" />
+<img src="images/dog5.png" alt="" />
+
+h$*6
+<h1></h1>
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+
+h$[제목$]*6
+<h1 제목1=""></h1>
+<h2 제목2=""></h2>
+<h3 제목3=""></h3>
+<h4 제목4=""></h4>
+<h5 제목5=""></h5>
+<h6 제목6=""></h6>
+
+8.연속생성
+
+div+p
+<div></div>
+<p></p>
+
+(h1{제목$}+p{내용 입니다.}*2)*5
+<h1>제목1</h1>
+<p>내용 입니다.</p>
+<p>내용 입니다.</p>
+<h1>제목2</h1>
+<p>내용 입니다.</p>
+<p>내용 입니다.</p>
+<h1>제목3</h1>
+<p>내용 입니다.</p>
+<p>내용 입니다.</p>
+<h1>제목4</h1>
+<p>내용 입니다.</p>
+<p>내용 입니다.</p>
+<h1>제목5</h1>
+<p>내용 입니다.</p>
+<p>내용 입니다.</p>
+
+
+div+a+div+p+div+img
+<div></div>
+<a href=""></a>
+<div></div>
+<p></p>
+<div></div>
+<img src="" alt="" />
+
+
+9.하위 생성
+
+table+
+<table>
+	<tr>
+		<td></td>
+	</tr>
+</table>
+
+ul+
+<ul>
+	<li></li>
+</ul>
+
+ol+
+<ol>
+	<li></li>
+</ol>
+
+10.자식 생성
+div>p
+<div>
+	<p></p>
+</div>
+
+div>p*5
+<div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+</div>
+
+(div>p*2)*5
+<div>
+	<p></p>
+	<p></p>
+</div>
+<div>
+	<p></p>
+	<p></p>
+</div>
+<div>
+	<p></p>
+	<p></p>
+</div>
+<div>
+	<p></p>
+	<p></p>
+</div>
+<div>
+	<p></p>
+	<p></p>
+</div>
+
+table#tbl>tr*5>td*3
+<table id="tbl">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+
+table#tbl>tr*5>td.label+td.content
+<table id="tbl">
+	<tr>
+		<td class="label"></td>
+		<td class="content"></td>
+	</tr>
+	<tr>
+		<td class="label"></td>
+		<td class="content"></td>
+	</tr>
+	<tr>
+		<td class="label"></td>
+		<td class="content"></td>
+	</tr>
+	<tr>
+		<td class="label"></td>
+		<td class="content"></td>
+	</tr>
+	<tr>
+		<td class="label"></td>
+		<td class="content"></td>
+	</tr>
+</table>
+
+
+<div>
+   <!-- <p>임의의 값</p> -->
+   <!-- <p><%=temp%></p> -->
+   <!-- <p>${param.temp}</p> -->
+</div>
+
+lorem
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta repellat inventore ut rerum soluta culpa modi a atque quisquam porro enim mollitia adipisci. Numquam dolorem voluptate illum doloremque optio non.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem culpa qui assumenda commodi omnis vero ad fugiat facere consectetur tenetur voluptas ipsa ab ut ullam provident fugit excepturi officia dicta.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis explicabo expedita adipisci velit libero fugit alias porro amet aliquam maiores officia obcaecati harum eum. Saepe distinctio placeat natus fugit a.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatum aliquid praesentium odio delectus placeat ad. Maxime ullam quas cumque odit beatae eaque optio. Recusandae ad commodi molestias dolorem et.
+
+<td>lorem</td>
+<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea excepturi eligendi sint architecto placeat accusamus perspiciatis repellendus obcaecati ab tempora odit deserunt? Nulla harum autem repudiandae ducimus quia alias iusto.</td>
+
+lorem(td)
+
+<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi praesentium tempora ullam eos doloremque rem similique at repellat obcaecati doloribus neque dolor dicta! Similique iste cum expedita quae voluptates!</td>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+/*===============================
+  MemberDAO.java
+  - 데이터베이스 액션 처리 전용 객체 구성
+================================ */
+
+package com.test;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.util.DBConn;
+
+public class MemberDAO
+{
+	// 주요 변수 선언(주요 속성 구성) → DB연결 객체
+	private Connection conn;
+
+	// 생성자 정의
+	public MemberDAO() throws ClassNotFoundException, SQLException
+	{
+		// DB 연결
+		conn = DBConn.getConnection();
+		// ctrl + shift + o 하면 자동으로 필요한거 임포트 해줌
+		// ctrl + shift + f 하면 포맷에 맞춰서 들여쓰기 틀을 잡아줌
+	}
+	
+	//기능 → 메소드 정의 → 데이터를 입력하는 기능 →insert 쿼리문 수행
+	public int add( MemberDTO dto) throws SQLException
+	{
+		//반환할 결과값을 담을 변수
+		int result = 0;
+		
+		//생성자의 conn을 활용해서
+		//1.작업객체 생성
+		Statement stmt = conn.createStatement();
+		
+		//※Statement의 종류
+		//	-Statement
+		//   하나의 쿼리를 사용하고나면 더 이상 사용할 수 없다.
+		//	-PreparedStatement
+		//	 하나의 PreparedStatement 로 쿼리를 여러 번 처리할 수 있다.
+		//	-CallableStatement
+		//	 데이터베이스 내의 스토어드 프로시저나 함수 등을 호출할 수 있다.
+		
+		
+		//※Statement의 의미
+		// 자바에서 사용되는 3가지 종류의 작업 객체들은
+		// 데이터베이스로 쿼리를 담아서 보내는 그릇
+		// 즉, 작업 객체에 쿼리를 실어 데이터베이스로 보내버리면
+		// 그 내용이 데이터베이스 내에서 처리되는 것
+		// 이때 한번 사용하고 버리는 그릇은 Statement
+		// 재사용이 가능한 그릇은 PreparedStatement 이다.
+		
+		//쿼리문
+		String sql = String.format("INSERT INTO TBL_MEMBER(SID, NAME, TEL)" 
+									+"VALUES(MEMBERSEQ.NEXTVAL, '%s', '%s')"
+				                     , dto.getName(), dto.getTel());
+		
+		//쿼리문 실행
+		result = stmt.executeUpdate(sql);
+		
+		//최종 결과값 반환
+		return result;
+	
+	}// end add
+
+	
+	
+	//기능 →메소드 정의 → 인원수를 파악하는 기능 → select 쿼리문 수행
+	public int count() throws SQLException
+	{
+		//결과값으로 반환하게 될 변수 선언 및 초기화
+		int result = 0;
+		
+		//작업 객체 생성
+		Statement stmt = conn.createStatement();
+		
+		//쿼리문 준비
+		String sql = "SELECT COUNT(*) AS COUNT FROM TBL_MEMBER";
+		
+		//쿼리문 실행 →select 쿼리문 → ResultSet 반환
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		
+		//ResultSet 처리 → 반복문 구성
+		while (rs.next())
+		{
+			result = rs.getInt("COUNT");    //→ result = rs.getInt(1); 컬럼번호로도 얻어올수 있음
+			
+		}
+		//리소스 반납및 반환
+		rs.close();
+		stmt.close();
+		return result;
+	} //end count()
+	
+	
+	//기능 → 메소드 정의 → 데이터 전체 조회하는 기능 → select 쿼리문 수행
+	public ArrayList<MemberDTO> list() throws SQLException
+	{
+		
+		//객체 배열에 담을것
+		ArrayList<MemberDTO> listResult = new ArrayList<MemberDTO>();
+		
+		//전체 데이터 조회 기능 -> 아마 단순출력기능일듯
+		//1.연결객체는 있으니 statement 생성
+		Statement stmt = conn.createStatement();
+		
+		
+		// 쿼리문 준비
+		String sql = "SELECT SID, NAME, TEL FROM TBL_MEMBER";
+		
+		
+		// 쿼리문 실행
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		
+		
+		while (rs.next())
+		{
+			MemberDTO dto = new MemberDTO();
+			dto.setSid(rs.getString("SID"));
+			dto.setName(rs.getString("NAME"));
+			dto.setTel(rs.getString("TEL"));
+			
+			listResult.add(dto);
+			
+			
+		}
+		//리소스반납
+		rs.close();
+		stmt.close();
+		
+		return listResult;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		MemberDAO md = new MemberDAO();
+		ArrayList<MemberDTO> = new ArrayList<MemberDTO>();
+		
+		md.list();
+		
+	}
+	
+
+}

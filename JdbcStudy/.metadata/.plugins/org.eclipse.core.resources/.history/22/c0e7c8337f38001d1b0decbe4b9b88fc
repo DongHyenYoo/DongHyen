@@ -1,0 +1,78 @@
+package com.test;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.util.DBConn;
+
+public class ScoreDAO
+{
+	
+	private Connection conn;
+	
+	public ScoreDAO() throws ClassNotFoundException, SQLException
+	{
+		conn = DBConn.getConnection();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	//입력할 add
+	//인원수 조회할 count
+	//전체 데이터 불러올 list
+	
+	public int add(ScoreDTO dto) throws SQLException
+	{
+		int result = 0;
+		String count;
+		
+		count = String.valueOf(count()+1);
+		
+		//연결객체로 작업 객체 생성
+		Statement stmt = conn.createStatement();
+		
+		//sql구문 작성
+		String sql = String.format("INSERT INTO TBL_SCORE(SID, NAME, KOR, ENG, MAT)"
+									+"VALUES(%s, '%s', %s, %s, %s)", count, dto.getName(), dto.getKor(), dto.getEng(), dto.getMat());
+		
+		//sql 구문 실행
+		
+		result = stmt.executeUpdate(sql);
+		
+		return result;
+		
+	}
+	
+	public int count() throws SQLException
+	{
+		int result = 0;
+		
+		//작업 객체 생성
+		Statement stmt = conn.createStatement();
+		
+		//sql 구문 
+		String sql = "SELECT COUNT(*) AS COUNT FROM TBL_SCORE";
+		
+		//sql 실행
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		//ResultSet 은 이터레이터와 같다.
+		//반복문으로 가져온다.
+		while (rs.next())
+		{
+			result = rs.getInt("COUNT");
+		}
+		
+		rs.close();
+		stmt.close();
+		
+		return result;
+		
+		
+	}
+	
+	
+
+}

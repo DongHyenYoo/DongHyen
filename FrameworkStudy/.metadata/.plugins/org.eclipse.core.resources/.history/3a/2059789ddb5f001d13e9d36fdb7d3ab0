@@ -1,0 +1,14 @@
+package com.test.src;
+
+public interface OracleDAO
+{
+		private Connection conn;
+		
+		public OracleDAO()
+		{
+			conn = DBConn.getConnection();
+		}
+				
+
+	
+}

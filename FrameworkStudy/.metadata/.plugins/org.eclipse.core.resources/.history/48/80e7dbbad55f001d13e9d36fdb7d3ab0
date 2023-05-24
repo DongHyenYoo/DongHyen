@@ -1,0 +1,68 @@
+package com.test.src;
+
+public class MemberDTO implements IDAO
+{
+	private String id, name, tel, email;
+
+	@Override
+	public String getId()
+	{
+		return id;
+	}
+
+	@Override
+	public void setId(String id)
+	{
+		this.id = id;
+		
+	}
+
+	@Override
+	public String getName()
+	{
+		
+		return name;
+	}
+
+	@Override
+	public void setName(String name)
+	{
+		this.name = name;
+		
+	}
+
+	@Override
+	public String getTel()
+	{
+		// TODO Auto-generated method stub
+		return tel;
+	}
+
+	@Override
+	public void setTel(String tel)
+	{
+		this.tel = tel;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getEmail()
+	{
+		
+		// TODO Auto-generated method stub
+		return email;
+	}
+
+	@Override
+	public void setEmail(String email)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+package com.test.src;
+
+public class Main
+{
+	MemberList list = new MemberList();
+	
+	
+
+}

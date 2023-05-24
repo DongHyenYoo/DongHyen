@@ -1,0 +1,8 @@
+package com.test.spr;
+
+public class MemberDTO
+{
+	private string id,pw,name,tel,email;
+	
+
+}

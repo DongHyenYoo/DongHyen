@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+</head>
+<body>
+<div>
+	<h1>키랏★</h1>
+</div>
+
+<div>
+	<!-- 데이터 전송 및 페이지 요청 -->
+	<form action="Test025.html"> <!-- 만약 action에 나무것도 넣지않는다면 본인을 재호출한다.-->
+	
+	<!-- id로 부여한 속성은 : script에서 가져와서 수행한다.
+	submit은 name속성을 통해 전송된다. -->
+	
+	이름(*) <input type="text" name="name" size="15" maxlength="8"><br>
+	이메일 <input type="text" name="name" size="15" maxlength="8"><br>
+	
+	하고픈말<br>
+	<textarea rows="10" cols="50" name="comment"></textarea>
+	<br><br>
+	
+	<!--       <input type="submit" value="전송하기" name="submitBtn">-->
+      <!-- <input type="button" value="전송하기" name="submitBtn"> -->
+      <!-- <button>전송하기</button> -->
+      <!-- <button type="submit">전송하기</button> --> 
+      <button type="button"><span>전송하기</span></button>
+      
+      
+	<input type="submit" value="전송하기" name="submitBtn">
+	
+	<button type="submit">전송하기</button>
+	
+	<button type="button" ><span></span></button>
+	
+	<button type="button" ><img alt="" src="images/btn_01.png"></button>
+	
+	<input type="reset" value="다시쓰기" name="resetBtn">
+	
+	
+	
+	
+	</form>
+	
+</div>
+
+
+</body>
+</html>

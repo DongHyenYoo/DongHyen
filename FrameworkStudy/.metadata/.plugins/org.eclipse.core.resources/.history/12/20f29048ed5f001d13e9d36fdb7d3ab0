@@ -1,0 +1,42 @@
+/*
+ * OracleDAO.java
+ * -DAO 구성
+ * - MSsqlDAO 와 비교하여 설정만 다르게 구성하여 실습진행
+ */
+
+package com.test.spr;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.test.util.DBConn;
+
+public class OracleDAO implements IDAO
+{
+
+	@Override
+	public List<MemberDTO> list() throws ClassNotFoundException, SQLException
+	{
+		
+		List<MemberDTO> result = new ArrayList<MemberDTO>();
+		
+		//데이터베이스 연결
+		//DBConn.getConnection("jdbc:oracle:thin:@211.238.142.62:1521:xe","scott","tiger");
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		DriverManager.getConnection("jdbc:oracle:thin:@211.238.142.62:1521:xe","scott","tiger");
+		
+		//select 쿼리문 준비 및 실행
+		
+		//작업 객체의 수행 결과 얻어낸
+		//결과 집합을 컬렉션(result)에 추가
+		
+		
+		//결과 반환
+		return result;
+	}
+
+	
+}

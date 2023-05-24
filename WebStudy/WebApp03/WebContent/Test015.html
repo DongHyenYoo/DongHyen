@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	hr {border-top: 2px dashed black;}
+	
+	* {background: linear-gradient(45deg, #6190e8 ,#a7bfe8); color: white; font-weight: bold;}
+	
+	input {border-color: pink; border: 0; border-radius: 15px; background-color:#F5DEB3; }
+	
+</style>
+
+<script type="text/javascript">
+
+	function div()
+	{
+		var money = parseInt(document.getElementById("money").value); //입력 값 정수 변환
+		
+		var tot = money;
+		
+		document.getElementById("tot").value = tot;
+		
+		
+		var obac = parseInt(money/500); // /하면 소수까지 나오므로 정수형으로 바꾸기  
+		
+		money = money - (obac*500);
+		
+		document.getElementById("obac").value = obac;
+		
+		//money = money % 500; //500원으로 나눈 나머지가 money
+		
+		var bac = parseInt(money/100);
+		
+		money = money - (bac*100);
+		
+		document.getElementById("bac").value = bac;
+		
+		//money = money % 100; //다시 100원으로 나눈 나머지가 money
+		
+		var osib = parseInt(money/50);
+		
+		money = money - (osib*50);
+		
+		document.getElementById("osib").value = osib;
+		
+		var sib = parseInt(money/10);
+		
+		document.getElementById("sib").value = sib;
+		
+		
+		
+		
+		
+	}
+
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<p>특정 금액(10원~ 990원)을 사용자로부터 입력받아<br>
+	화폐 단위로 구분하여 출력하는 페이지를 구성한다.<br>
+	화폐 단위는 편의상 오백원, 백원 오십원, 십원으로 구분<br>
+	
+	<p>HTML, CSS, Javascript 를 활용한다.</p>
+	
+	<!-- 페이지 기본 레이아웃 구성
+	---------------------------------------------------------
+	
+	금액 [		] 원
+	
+	<결과><취소>
+	
+	총액 [		] 원
+	오백원 [	] 개 
+	백원   [	] 개
+	오십원 [	] 개
+	십원   [	] 개
+		
+	---------------------------------------------------------
+ --> -->
+
+
+</div>
+
+
+<div>
+<hr>
+<p>
+<form>
+금액 [<input type="text" id="money" value="돈받기">] 원 </p>
+
+<input type="button" id="result" class="btn" value="결과" onclick="div()"> &nbsp;
+<input type="reset" class="btn" value="취소">
+<br><br>
+<div class="resultWindow">
+총액 [<input type="text" disabled="disabled" id="tot" value="총액"> ]원<br>
+오백원 [<input type="text" disabled="disabled" id="obac" value="오백원">]원<br>
+백원 [<input type="text" disabled="disabled" id="bac" value="백원">]원<br>
+오십원 [<input type="text" disabled="disabled" id="osib" value="오십원">]원<br>
+십원 [<input type="text" disabled="disabled" id="sib" value="십원">]원<br>
+</div>
+<br>
+<hr>
+</form>
+
+
+</div>
+
+
+</body>
+</html>

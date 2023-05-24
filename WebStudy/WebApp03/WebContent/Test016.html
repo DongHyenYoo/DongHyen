@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test016.html</title>
+<style type="text/css">
+
+	table{ border-top: 2px dashed black; border-bottom: 2px dashed black; border-left: 0 ;border-right: 0;}
+	td {text-align: center;}
+	.input {text-align: left;}
+</style>
+
+<script type="text/javascript"	>
+
+	function res()
+	{
+		
+		var vkor = parseInt(document.getElementById("kor").value);
+		var veng = parseInt(document.getElementById("eng").value);
+		var vmat = parseInt(document.getElementById("mat").value);
+		
+		var vAvg = (vkor+veng+vmat)/3;
+		
+		document.getElementById("result1").value = vAvg;
+		
+		var vRes = (vAvg >= 60 && vkor >= 40 && veng >= 40 && vmat>=40) 
+		           ? "합격" : (vAvg >= 60 && (vkor < 40 || veng < 40 || vmat < 40)) ? "과락": "불합격" ;
+		
+		document.getElementById("result2").value = vRes;
+		
+	}
+
+
+</script>
+
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+
+<!-- 사용자로부터 이름, 국어점수, 영어점수, 수학점수를 입력받아
+평균점수와 판정 결과를 출력하는 페이지를 구성한다.
+판정결과는 합격, 과락, 불합격 중 하나로 처리한다.
+
+합격은 모든 과목 점수가 40점 이상이면서 평균 60점 이상인경우
+과락은 평균이 60점 이상이나 한 과목이라도 과목 점수가
+40점 미만의 과목이 존재하는 경우
+불합격은 평균이 60점 미만인 경우로 처리
+
+
+html, css,javascript 활용
+
+페이지 레이아웃
+
+
+---------------------------------
+
+이름 	[]
+국어점수[]
+영어점수[]
+수학점수[]
+
+<처리결과 확인>
+
+평균    판정결과
+[	]	[		]
+
+---------------------------------- -->
+
+<div>
+
+<table>
+	
+	<tr>
+	<td>이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<input type="text" class="input" id="name" value="이름">]</td>
+	</tr>
+	
+	<tr>
+	<td>국어점수&nbsp;[<input type="text" class="input" id="kor" value="국어">]</td>
+	</tr>
+	
+	<tr>
+	<td>영어점수&nbsp;[<input type="text" class="input" id="eng" value="영어">]</td>
+	</tr>
+	
+	<tr>
+	<td>수학점수&nbsp;[<input type="text" class="input" id="mat" value="수학">]</td>
+	</tr>
+	
+	<tr>
+	<td><input type="button" class="btn" value="결과버튼"  onclick="res()"></td>
+	</tr>
+	
+	<tr>
+	<td><input type="text" class="result" id="result1" value="평균">
+	<input type="text" class="result" id="result2" value="판정결과">
+	</td>
+	</tr>
+
+
+
+</table>
+
+
+</div>
+
+
+
+
+</body>
+</html>

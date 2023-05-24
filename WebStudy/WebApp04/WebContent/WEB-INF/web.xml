@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  
+  <display-name>WebApp04</display-name>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>test004</servlet-name> <!-- 이걸 요청하면 -->
+  <servlet-class>com.test.Test004</servlet-class> <!-- 이걸 주면 됨! -->
+  
+  </servlet>
+  
+  
+  <servlet-mapping>
+  <servlet-name>test004</servlet-name>
+  <url-pattern>/test004</url-pattern> <!-- 요청하는 url에 대한 패턴 즉 http://~~/test004 식으로 요청할것 -->
+  </servlet-mapping>  <!-- web.xml에 등록하면 서버에 먼저 적재가 되어야하는 상태이므로 서버 restart -->
+  
+  
+  <servlet>
+  <servlet-name>test005</servlet-name>
+  <servlet-class>com.test.Test005</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>test005</servlet-name>
+  <url-pattern>/test005</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>

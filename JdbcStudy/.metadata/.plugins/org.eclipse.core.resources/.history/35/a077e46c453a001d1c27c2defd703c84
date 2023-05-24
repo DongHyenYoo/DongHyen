@@ -1,0 +1,35 @@
+package com.test;
+
+import java.util.Scanner;
+
+public class Process
+{
+	private ScoreDAO dao;
+	
+	public Process()
+	{
+		dao = new ScoreDAO();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void Scoreadd()
+	{
+		//연결 객체 생성
+		dao.connect();
+		
+		Scanner sc = new Scanner(System.in);
+	//	7번 학생 성적 입력(이름 국어 영어 수학) : 이원영 50 60 70
+		
+		int count = dao.count();
+		
+		System.out.printf("%d 번 학생 성적 입력(이름 국어 영어 수학) : ",(++count));
+		
+		
+		
+		
+		
+		
+		dao.add(dto);
+	}
+
+}

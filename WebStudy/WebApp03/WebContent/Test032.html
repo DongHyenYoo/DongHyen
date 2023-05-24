@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function myAddr(addr)
+	{
+		//alert(addr);
+		
+		window.opener.document.getElementById("addr1").value = addr; 
+	//  ------ =나 자신
+	//  Test032.html
+	//	------------  -------  ----------------------  ----   -----
+	//	Test031.html  해당문서    addr1 Id를가진것에  값을    addr로 하겠다.
+	
+	//window.close(); //Test032.html을 열어놓은 브라우저를 닫겠다.
+	
+	window.opener.document.getElementById("txt1").value = addr;
+	//txt1 = span 태그였다.  
+	//위는 <span id = "txt1" value="데이터"></span> 여기에 데이터자리에 addr을 넣겠다 라는
+	//의미가 된다. 
+	//하지만 span와 div 는 value가 없다.
+	
+	//alert(window.opener.document.getElementById("txt1")); //[object HTMLSpanElement]
+	
+	//IE 용
+	//window.opener.document.getElementById("txt1").innerText = addr;
+	
+	
+	//CR, FF 용
+	window.opener.document.getElementById("txt1").innerHTML = addr;
+	
+	}
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<form>
+		주소 검색 <input type="button" value="검색" />
+		<br><br>
+		<!-- <태그 속성명="함수(매개변수)"> 만약 매개변수가 문자형이면 ''로 표현하고
+		<태그 속성명=''> 밖에서 감싼것이 '' 라면 내부 문자형 매개변수는 ""로 표현한다.
+		 <태그 속성명="함수(\"매개변수\")"> 이렇게 써도된다. ''도 마찬가지
+		 -->
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 1길')">서울 마포구 월드컵북로 1 (1~73번지)</a><br>
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 13길')">서울 마포구 월드컵북로 13 (74~150번지)</a><br>
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 21길')">서울 마포구 월드컵북로 21 (151~152번지)</a><br>
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 31길')">서울 마포구 월드컵북로 31 (153번지)</a><br>
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 35길')">서울 마포구 월드컵북로 35 (154~155번지)</a><br>
+		<a href="javascript:myAddr('서울 마포구 월드컵북로 40길')">서울 마포구 월드컵북로 40 (156~160번지)</a><br>
+	</form>
+</div>
+
+</body>
+</html>

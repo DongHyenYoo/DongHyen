@@ -1,0 +1,7 @@
+package com.test.src;
+
+public interface IDAO
+{
+	private String id, name, tel, email;
+
+}

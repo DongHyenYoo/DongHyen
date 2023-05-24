@@ -1,0 +1,22 @@
+package com.test.src;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import com.test.util.DBConn;
+
+public class OracleDAO
+{
+	private Connection conn;
+	
+	public OracleDAO()
+	{
+		conn = DBConn.getConnection();
+	}
+	
+	public ArrayList<MemberDTO> list()
+	{
+		
+	}
+
+}

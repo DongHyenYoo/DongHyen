@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+/*
+ ○prev ~ siblings (앞원소 형제원소)
+ - returns : Array<Element>
+ - 주어진 앞 원소와 형제인 뒤 어ㅜㄴ소를 찾아 모두 배열로 반환
+ */
+ 
+ $(function()
+{
+	$("button").click(function()
+	{
+		$("#prev ~ div").css("border","3px groove blue");
+	});
+});
+
+</script>
+
+<style type="text/css">
+
+div, span
+{
+display: block;
+width: 80px;
+height: 80px;
+margin: 5px;
+background: #bfa;
+float: left;
+font-size: 14px;
+}
+
+div#small
+{
+width: 60px;
+height: 25px;
+font-size: 12px;
+background: #fab;
+}
+
+</style>
+</head>
+<body>
+
+<button type="button">확인</button><br><br>
+
+<div>div</div>
+<div id="prev">div#prev</div>
+<div>div sibling</div>
+<div>div sibling
+	<div id="small">div neice</div>
+</div>
+<span>span sibling(not div)</span>
+<div>div sibling</div>
+</body>
+</html>

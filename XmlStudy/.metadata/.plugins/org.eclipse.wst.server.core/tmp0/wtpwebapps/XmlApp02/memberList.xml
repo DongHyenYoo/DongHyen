@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD 추가 -->
+<!-- <!DOCTYPE memberList []> -->
+<!DOCTYPE memberList 
+[
+<!ELEMENT memberList (memberInfo+)>
+<!ELEMENT memberInfo (name, telephone, curriculumn?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT telephone (#PCDATA)>
+<!ELEMENT curriculumn (sub+)>
+<!ELEMENT sub (#PCDATA)>
+<!ATTLIST memberInfo mid CDATA #IMPLIED>
+<!-- └→ memberInfo에 mid가 CDATA 형식으로 있는데 이 값은 넣어도 되고 안 넣어도 된다. -->
+]>
+<!-- #IMPLIED      : 이 속성은 명시되기도 하고, 명시되지 않기도 한다. -->
+<!-- #REQUIRED     : 이 속성은 반드시 명시되어야 한다.-->
+<!-- #FIXED 특정값 : 이 속성은 특정값으로 고정되어 사용된다. -->
+
+<!-- 이렇게 구성하면 밑에 빨간 엑스 다 없어짐 -->
+
+<memberList>
+   <!-- 루트 엘리먼트는 하나 -->
+   <!-- 루트 엘리먼트 이름은 『~~~.xml』 파일 이름과 동일한 이름 사용 -->
+   <!-- 개인 정보를 표현할 수 있는 문서 작성 -->
+   <!-- 
+   김태민
+   010-1212-3434
+   JAVA SE
+   ORACLE
+   Servlet&JSP
+   
+   유동현
+   010-7878-8989
+   ORACLE
+   -->
+   
+   <memberInfo mid="1">
+      <name>김태민</name>
+      <telephone><![CDATA[010-1212-3434]]></telephone>
+      <curriculumn>
+         <sub>JAVA SE</sub>
+         <sub>ORACLE</sub>
+         <sub><![CDATA[Servlet&JSP]]></sub>
+      </curriculumn>
+   </memberInfo>
+   
+   <memberInfo mid="2">
+      <name>유동현</name>
+      <telephone><![CDATA[010-7878-8989]]></telephone>
+   </memberInfo>
+   
+   <!-- 복수(다수)의 데이터를 표현하는 경우 중간에 적절한 부모 태그 지정 -->
+   <!-- 동일한 이름을 가진 엘리먼트인 경우 적절한 속성과 값 부여 -->
+   <!-- 엘리먼트 하위에는 엘리먼트(또는 데이터)만 구성 -->
+   <!-- 특수문자가 포함된 데이터인 경우 『CDATA 섹션』으로 처리 -->
+   
+   
+</memberList>

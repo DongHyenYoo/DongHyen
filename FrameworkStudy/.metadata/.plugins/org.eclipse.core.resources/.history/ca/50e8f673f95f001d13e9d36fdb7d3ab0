@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="mssql" class="com.test.spr.MssqlDAO">
+    <!-- collaborators and configuration for this bean go here -->
+  </bean>
+
+  <bean id="oracle" class="com.test.spr.OracleDAO">
+    <!-- collaborators and configuration for this bean go here -->
+  </bean>
+	
+	<bean id="idao" class="com.test.spr.IDAO"></bean>	
+	
+  <!-- more bean definitions go here -->
+
+</beans>

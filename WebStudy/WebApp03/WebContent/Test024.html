@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>8228</title>
+
+<script type="text/javascript">
+
+
+
+	//1.입력받은 년도와 월을 받기
+	//2.1년 1월 1일 부터 입력받은 년,월의 직전월까지의 일수 구하기
+	//3.각 월에 해당하는 날짜수 배열을 만들기
+	//4.윤년일 경우 2월의 날짜를 29일 아닐경우 28일로 배열에 등록
+	//5.일주일은 무조건 7일으로 7로 나눴을때 나머지가 1이면 월요일 0이면 일요일일 날
+	//6.그 다음날부터 입력받은 달의 시작일이다.
+	//7.월마다 정해진 날짜를 배열에서 빼와서 해당 수 만큼 반복문으로 tr을 통해 달력그리기
+	//한 tr 에는 7개의 td가 존재	
+	//순서는 td7개를 붙여 tr안에 -> 그다음 테이블 안에
+	
+	
+	//td를 합쳐서 넘겨줄놈
+	function createTdNode(val)
+	{
+		//textnode
+		var textNode = document.createTextNode(val);
+		//tdnode
+		var tdNode = document.createElement("td");
+		//appendchild
+		tdNode.appendChild(textNode);
+		
+		return tdNode;
+		
+	}
+	
+	
+	
+	
+	//달력을 그릴놈
+	function Calender()
+	{
+		
+		document.getElementById("calendarTbl").value=0;
+		
+		//1.입력받은 년도와 월을 받기
+		var vYear = document.getElementById("txtYear").value;
+		var year = Number(vYear);
+		var vMonth = document.getElementById("txtMonth").value;
+		var month = Number(vMonth);
+		
+		//2.1년 1월 1일 부터 입력받은 년,월의 직전월까지의 일수 구하기
+		
+		var days = ((year-1)*365) - parseInt((year-1)/4) + parseInt(((year-1)/100)) - parseInt(((year-1)/400));
+				//년도 쪽 계산 year*365 - /4로 윤년인 년도만큼 -1 /100으로 평년인 일만큼 + 1/400으로 윤년인 일만큼 다시 -
+		
+		//alert(days);
+		//3.각 월에 해당하는 날짜수 배열을 만들기
+		
+		var arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+		
+		//4.윤년일 경우 2월의 날짜를 29일 아닐경우 28일로 배열에 등록
+		
+		if((year%4==0 && year%100!=0) || year%400 == 0 )
+			arr[1] += 1;
+			
+		
+		//입력받은 년도의 입력받은 달의 전달까지 계산하기		
+		for(var i=0; i<month-1; i++)
+			{
+			days += arr[i];
+			}
+		
+		
+		//5.일주일은 무조건 7일으로 7로 나눴을때 나머지가 1이면 월요일 0이면 일요일일 날
+		//6.그 다음날부터 입력받은 달의 시작일이다.
+		var tableNode = document.getElementById("calendarTbl");
+		
+		var trNode = document.createElement("tr"); //<tr> 생성
+
+		
+		//월의 시작일만큼 깡통td를 채운다.
+		//순서 td 내부 생성 createTextNode
+		// tdNode.appendChild(~) 로 자식노드로 만들기 
+		
+		for(var i=0; i<=days%7 ; i++)
+			{
+			trNode.appendChild(createTdNode(" ")); //변수명이 다르지 않은 같은것을 반복해도 하나의 td로 인식한다.
+			}
+		
+		
+		for(var i=1; i<=arr[month-1];i++)
+			{
+			
+			days++;
+			
+			if(days%7 == 0)
+				{
+				tableNode.appendChild(trNode);
+				trNode = document.createElement("tr");
+				}
+			trNode.appendChild(createTdNode(i));			
+			}
+		
+		for (var i = 1; i < 7-(days%7); i++)
+		{
+			
+			trNode.appendChild(createTdNode(" "));
+			
+		}
+		
+		tableNode.appendChild(trNode);
+		
+		
+		//7.월마다 정해진 날짜를 배열에서 빼와서 해당 수 만큼 반복문으로 tr을 통해 달력그리기
+		//한 tr 에는 7개의 td가 존재	
+		//순서는 td7개를 붙여 tr안에 -> 그다음 테이블 안에
+		
+		
+		
+	}
+	
+	
+	
+
+</script>
+
+</head>
+<body>
+
+	<div>
+		<form>
+			<input type="text" id="txtYear" class="txt"> 년 <input
+				type="text" id="txtMonth" class="txt"> 월 <br> <br>
+
+			<button type="button" class="btn" onclick="Calender()">만년달력
+				그리기</button>
+			<br> <br>
+
+			<table border="1" id="calendarTbl">
+				<tr>
+					<th>일</th>
+					<th>월</th>
+					<th>화</th>
+					<th>수</th>
+					<th>목</th>
+					<th>금</th>
+					<th>토</th>
+			</table>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

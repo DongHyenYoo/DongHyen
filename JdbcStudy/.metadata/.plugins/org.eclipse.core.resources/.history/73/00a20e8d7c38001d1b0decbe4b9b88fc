@@ -1,0 +1,38 @@
+package com.test;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import com.util.DBConn;
+
+public class ScoreDAO
+{
+	
+	private Connection conn;
+	
+	public ScoreDAO()
+	{
+		conn = DBConn.getConnection();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	//입력할 add
+	//인원수 조회할 count
+	//전체 데이터 불러올 list
+	
+	public int add(ScoreDTO dto)
+	{
+		int result = 0;
+		
+		//작업 객체 생성
+		Statement stmt = 
+		
+		
+		return result;
+		
+	}
+	
+	
+
+}

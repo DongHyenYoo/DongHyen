@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+#menuTable {
+	display: none;
+}
+
+	/* dispaly : block;
+		
+		div와 같은 블럭단위로 수행되는 태그와 같이 하고싶으면 block;
+		
+		라인단위로 그리고 싶으면 inline 으로
+	
+	 */
+	
+
+/* 	css에서 컨트롤하는 display 속성은 랜더링을 하느냐 안하느냐임
+	즉 display: none 는 아예 이것을 그리지 말라는뜻 */
+	
+/* 	랜더링 했는데 안보여주는건 visible 속성이 따로 있다. */
+
+</style>
+
+
+
+<script type="text/javascript" src="js/myMenu.js"></script>
+
+
+
+
+</head>
+<body>
+
+	<div>
+		<h1>자바스크립트 활용</h1>
+		<hr>
+	</div>
+
+	<div>
+		<h2>메뉴 보이기 / 감추기</h2>
+
+		<div>
+			<form>
+				<!-- 클릭시 메뉴 테이블 보이기 -->
+				<input type="button" value="메뉴 보이기" class="btn" onclick="myMenu(1)">
+				<!-- 클릭시 메뉴 테이블 감추기 -->
+				<input type="button" value="메뉴 감추기" class="btn" onclick="myMenu(2)"/>
+				
+				
+				<input type="button" value="메뉴 보이기/감추기" onmouseover="myMenu(1)" onmouseout="myMenu(2)" />
+			
+			
+			
+			</form>
+
+		</div>
+		<br> <br>
+
+		<div id="menuTable">
+			<table>
+				<tr>
+					<td>JAVA 기초</td>
+				</tr>
+
+				<tr>
+					<td>ORACLE 중급</td>
+				</tr>
+
+				<tr>
+					<td>JSP고급</td>
+				</tr>
+
+				<tr>
+					<td>Servlet 응용</td>
+				</tr>
+
+			</table>
+
+		</div>
+
+		<span>테스트</span>
+
+
+	</div>
+
+
+</body>
+</html>

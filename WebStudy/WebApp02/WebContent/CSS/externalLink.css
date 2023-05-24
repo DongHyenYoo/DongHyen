@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/*css 파일은 css파일에서 적용할 파일을 정하지 않는다.*/
+/*적용될 파일에서 css파일을 적용해달라고 써야하는것 */
+h2
+{
+	color: blue;
+}
+
+p
+{
+	font-size: 20pt;
+	font-weight: bold;
+	color: red;
+}
+

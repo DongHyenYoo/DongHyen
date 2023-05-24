@@ -1,0 +1,16 @@
+package com.test.src;
+
+public interface IDAO
+{
+	public String getId();
+	public void setId(String id);
+	public String getName();
+	public void setName(String name);
+	public String getTel();
+	public void setTel(String tel);
+	public String getEmail();
+	public void setEmail(String email);
+
+	
+
+}

@@ -1,0 +1,18 @@
+package com.test.src;
+
+
+public class MemberList
+{
+	private IDAO dao;
+	
+	public MemberList() {
+		
+		dao = new OracleDAO();
+	}
+	public MemberList(String ip) {
+		
+	}
+	
+	
+
+}

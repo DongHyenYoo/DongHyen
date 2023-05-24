@@ -1,0 +1,11 @@
+/*===================================
+ CalculatorProxy.java
+ -프록시 클래스
+ - 보조업무 적용 및 주 업무 호출
+ =====================================*/
+package com.test.spr;
+
+public class CalculatorProxy
+{
+
+}

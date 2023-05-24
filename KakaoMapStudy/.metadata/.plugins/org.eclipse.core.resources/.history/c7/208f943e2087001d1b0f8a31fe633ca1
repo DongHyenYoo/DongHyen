@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");                    //지도를 그릴 div
+		options =
+			{
+				center: new daum.maps.LatLng(37.556556 , 126.919550),   //지도의 중심좌표(풍성빌딩)
+		     	level: 3,                                    //지도의 확대축소 레벨(cf, GoogleMap 이나 NaverMap 은 zoom으로 구성)
+			};
+		
+		
+		   map = new kakao.maps.Map(container, options);  //지도 생성
+		 
+	}
+
+	
+	//중심좌표 이동 버튼 클릭시 호출
+	function setCenter()
+	{
+		
+		//중심을 이동할 위도 경도 위치 생성(라인프렌즈 홍대)
+		const moveLatLng = new kakao.maps.LatLng(37.555505, 126.921454);
+		
+		//지도 중심 이동
+		map.setCenter(moveLatLng);
+		
+		
+	}
+   
+  
+   
+</script>
+
+
+<body onload="initialize()">
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+
+
+<div>
+	<h1>Kakao Map 중심 좌표 이동</h1>
+	<ul>
+		<li>지도 객체의 메소드를 통해 지도를 원하는 좌표로 이동시키는 것이 가능하다.</li>
+		<li>표시되고 있는 영역을 벗어나지 않는 거리에서는 애니메이션 효과처럼 지도를 부드럽게 이동시킬 수도 있다.</li>
+		
+	</ul>
+	<hr>
+</div>
+
+
+
+<!-- 지도를 랜더링할 div 공간 확보(지정) -->
+<div id="map" style="width:100%; height:350px;"></div>
+
+<p>
+<button type="button" onclick="setCenter()">중심좌표 이동</button>
+</p>
+
+</body>
+</html>

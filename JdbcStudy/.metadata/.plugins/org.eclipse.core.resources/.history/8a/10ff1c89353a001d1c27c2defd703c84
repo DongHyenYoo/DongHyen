@@ -1,0 +1,93 @@
+
+/*
+ 
+ Test001.java
+ -쿼리문 전송 실습 1
+ 
+ */
+
+package com.test;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import com.util.DBConn;
+
+public class Test001
+{
+	public static void main(String[] args)
+	{
+		try
+		{
+			Connection conn = DBConn.getConnection();
+			
+			if(conn != null)
+			{
+				System.out.println("데이터 베이스 연결 성공");
+			
+				try
+				{
+					/*
+					Statement stmt = conn.createStatement();
+					String sql = "INSERT INTO TBL_MEMBER(SID, NAME, TEL) VALUES(MEMBERSEQ.NEXTVAL, '고연수', '010-7777-7777')";
+					
+					int result = stmt.executeUpdate(sql);
+					
+					if(resut > 0)
+						System.out.println("데이터 입력 성공");
+					stmt.close();
+					*/
+					/*String sql = "INSERT INTO TBL_MEMBER(SID, NAME, TEL)"
+							+ " VALUES(MEMBERSEQ.NEXTVAL, '고연수', '010-7777-7777')";
+					
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					
+					int result = pstmt.executeUpdate();
+					if(result > 0)
+						System.out.println("데이터 입력 성공");
+					pstmt.close();
+					*/
+					
+					String sql = "INSERT INTO TBL_MEMBER(SID, NAME, TEL)"
+							+ //" VALUES(MEMBERSEQ.NEXTVAL,?, ?)";
+							" VALUES(?, ?, ?)";
+					//? : 추후에 넘겨줄테니 자리 비워놓으라는 표식
+					//표식에서 주의할 점
+					//'%s' 정수 형태로 받더라도 오라클에게 문자열로 넘겨줄때
+					//%d 정수형태로 받고 오라클에서도 정수형일때
+					// %s 문자열형태로 받았고 오라클에서는 정수로 받을때
+				  
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.set
+					
+					
+					int result = pstmt.executeUpdate();
+					if(result > 0)
+						System.out.println("데이터 입력 성공");
+					pstmt.close();
+					
+					
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				
+				
+				
+				}
+			
+			
+			
+			}
+			
+			
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+			// TODO: handle exception
+		}
+	}
+
+}

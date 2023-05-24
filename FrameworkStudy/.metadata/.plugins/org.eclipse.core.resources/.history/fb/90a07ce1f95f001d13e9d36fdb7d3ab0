@@ -1,0 +1,11 @@
+package com.test.spr;
+
+public class MemberList
+{
+	private IDAO idao;
+	
+	public MemberList(IDAO idao) {
+		
+	}
+
+}

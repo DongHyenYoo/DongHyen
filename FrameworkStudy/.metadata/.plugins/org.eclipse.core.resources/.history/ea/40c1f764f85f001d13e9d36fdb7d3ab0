@@ -1,0 +1,21 @@
+package com.test.spr;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class OracleDAO implements IDAO
+{
+
+	@Override
+	public ArrayList<MemberDTO> list() throws ClassNotFoundException, SQLException
+	{
+		ArrayList<MemberDTO> result = new ArrayList<MemberDTO>();
+		
+		Class.forName("jdbc.oracle.driver.OracleDriver");
+		
+		return result;
+	}
+	
+	
+
+}

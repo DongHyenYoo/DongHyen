@@ -1,0 +1,10 @@
+package com.test.src;
+
+import java.util.ArrayList;
+
+public interface IDAO
+{
+	public ArrayList<MemberDTO> list(); 
+	
+
+}

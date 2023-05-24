@@ -1,0 +1,9 @@
+package com.test.src;
+
+public class MemberDTO
+{
+	private String id, name, tel, email;
+
+	
+	
+}

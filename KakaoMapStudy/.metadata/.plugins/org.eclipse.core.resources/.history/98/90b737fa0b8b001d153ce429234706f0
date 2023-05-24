@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest017.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   // 페이지 로드 됐을 때 이 함수안의 내용은 전역변수처럼 쓰임
+   function initialize()
+   {
+	   //중심좌표 풍성빌딩
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556, 126.919550);
+      
+      options =
+      {
+         center: mapCenter
+         , level: 3  
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //마커 옵션 교육원 길건너 스타벅스
+      markerCenter = new kakao.maps.LatLng(37.556856, 126.919990);
+      
+      //마커 생성
+      marker = new kakao.maps.Marker({
+    	  
+    	  position: markerCenter,
+      });
+      
+      
+      //생성한 마커가 지도에 표시되도록
+      marker.setMap(map);
+      
+      //인포윈도우 옵션 구성
+      const iwContent = "<div style='padding:5px;'>스타벅스</div>";
+      const iwRemovable = true;
+      
+   }
+      
+      </script>
+</head>
+<body onload="initialize()">
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<div>
+   <h1>Kakao Map 생성한 마커에 이벤트 등록</h1>
+   <hr>
+</div>
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 350px;"></div>
+<br>
+
+</body>
+</html>

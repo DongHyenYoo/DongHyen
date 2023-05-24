@@ -1,0 +1,26 @@
+■■■JDBC 사전설정 및 주의사항■■■
+
+○ 해당 워크스테이션에 오라클이 설치된 경우(학습 환경)
+   - 시스템의 classPath를 다음과 같이 생성 및 변경
+      
+      (11g Express Edition 설치 경로가 c:\oraclexe 인 경우...)
+      .;C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar
+
+      (10g Express Edition 설치경로가 c:\oraclexe 인 경우...)
+      .;C:\oracle\product\10.x.x\DB_X\jdbc\lib\ojdbc14.jar
+
+○ 해당 워크스테이션에 오라클이 설치되어 있지 않은 경우(실무 환경)
+   - Oracle용 JDBC 드라이버를 다운로드해야 한다.
+   
+   가. 다운로드 경로
+       1) https://www.oracle.com/kr/database/technologies/appdev/jdbc.html 으로 이동
+       2) get started  > jdbc DownLoads 클릭
+       3) Oracle Database 11g Release 2 (11.2.0.4)  drivers  클릭
+       4) ojdbc6.jar 다운
+          ※ 해당 다운로드 항목은 로그인을 필요로 함.
+
+   나. 파일명
+       [ojdbc6.jar] 또는 [ojdbc14.jar]파일
+   
+   다. 시스템의 classpath에 변수값으로 ojdbc6.jar(ojdbc14.jar) 
+        파일 추가(경로 포함)

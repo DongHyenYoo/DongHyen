@@ -1,0 +1,34 @@
+/*===================================
+ CalculatorProxy.java
+ -프록시 클래스
+ - 보조업무 적용 및 주 업무 호출
+ =====================================*/
+package com.test.spr;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+// ※ Proxy 클래스를 설계하는 방법들 중
+//  비교적 쉽고 직관적인 방법은
+// InvocationHandler 인터페이스를 구현하는 클래스를 만드는 것이다.
+//----------------------------
+//└→ like 실리콘 가면 만들어주는 거
+
+public class CalculatorProxy implements InvocationHandler
+{
+	
+	//주요 속성 구성 → 대상 객체
+	private Object target;
+	//InvocationHandler 인터페이스의 invoke() 메소드 재정의
+
+	@Override
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+
+}

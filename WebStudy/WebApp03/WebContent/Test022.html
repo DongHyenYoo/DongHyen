@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test022.html</title>
+
+<script type="text/javascript">
+	
+	
+	/*
+	 function myScore()
+   {
+      var str = "";
+      var arr = new Array(new Array(), new Array(), new Array(), new Array(), new Array(), new Array());
+      var n = 0;
+      
+      do
+      {
+         str = prompt("이름 국어 영어 수학(" + (n+1) + ") : ");
+         
+         if (str == null || str == "" || str =="." || str == " ")
+            break;
+         
+         var member = str.split(" ");
+         
+         arr[0][n] = member[0];
+         arr[1][n] = member[1];
+         arr[2][n] = member[2];
+         arr[3][n] = member[3];
+         arr[4][n] = (Number(member[1]) + Number(member[2]) + Number(member[3])).toString();
+         arr[5][n] = 1;
+         
+         n++;
+         
+      } while (true);
+      
+      for (var i = 0; i < arr[4].length; i++)
+      {
+         for (var j = 0; j < arr[4].length; j++)
+         {
+            if (i == j)
+            {
+               continue;
+            }
+            
+            if ( Number(arr[4][i]) < Number(arr[4][j]) )
+            {
+               arr[5][i] = (Number(arr[5][i]) +1 ).toString(); //자바스크립트는 기본적으로 문자타입이라고 생각하고 운용하는것이 바람직하기에 다시 toString으로 문자로 바꾼다.
+            }													//자바스크립트 특성상 어떤 타입이라고 확신할수없음
+         }
+      }
+      
+      var result = "";
+      
+      for (var j = 0; j < arr[0].length; j++)
+      {
+         for (var k = 0; k < arr.length; k++)
+         {
+            result += arr[k][j] + " " + " " + " ";
+         }
+         
+         result += "\n";
+      }
+      
+      document.getElementById("txtCount").value = arr[0].length;
+      
+      document.getElementById("memberList").value = "  이름  국어  영어  수학  총점  등수\n";
+      
+      document.getElementById("memberList").value += result;
+   }
+
+
+	*/
+	
+	
+	function input()
+	{
+		//필요변수 학생의 이름,성적을 담을 배열
+		//총몇명인지 셀 변수 num
+
+		var num = 0;
+
+		var arr = new Array(new Array());
+
+		//var tempArr = new Array();
+
+		var str = "";
+
+		do
+		{
+			str = prompt("이름 국어 영어 수학" + "(" + (num + 1) + ")");
+
+			if (str == "" || str == null || str == "")
+			{
+				break;
+			}
+
+			//alert(str.split(" ").length); return하는게 배열이므로 배열의 크기가 나온다.
+			arr[num] = str.split(" ");
+			var length = arr[num].length;
+			arr[num][length] = Number(arr[num][1]) + Number(arr[num][2])
+					+ Number(arr[num][3]);
+			arr[num][length + 1] = 1;
+			//alert(arr[num][1]); 배열의 세로 번째만줘도 알아서 나눠담는다. 0 = 이름 1 = 국어점수가 나옴 즉 깡통배열을 만들어 일일이 넣어줄 필요없음
+
+			num++;
+
+		} while (true);
+
+		//석차 담기
+
+		for (var i = 0; i < arr.length; i++)
+		{
+			for (var j = 0; j < arr.length; j++)
+			{
+
+				if (arr[i][arr[i].length - 2] < arr[j][arr[j].length - 2])
+
+					arr[i][arr[i].length - 1] += 1;
+
+			}
+
+		}
+		
+		document.getElementById("txtResult").value += "\n\n";
+
+		for (var i = 0; i < arr.length; i++)
+		{
+			for (var j = 0; j < arr[i].length; j++)
+			{
+				document.getElementById("txtResult").value += arr[i][j] + " ";
+			}
+			document.getElementById("txtResult").value += "\n";
+		}
+		
+		
+		document.getElementById("txtCount").value = arr.length;
+
+	}
+</script>
+
+
+</head>
+<body>
+
+
+	<!-- 
+   여러 명의 이름과 전화번호를 입력받고
+   그 내용을 전체 출력하는 페이지를 구성한다.
+   HTML, CSS, Javascript 를 활용한다.
+   
+   ※ prompt() 활용.
+   
+   단, 2차원 배열을 활용한다.
+   
+   페이지 레이아웃
+   ----------------------------------------------
+   <회원 정보 입력> → click → 프롬프트 대화창 → 이름 국어 영어 수학(1):
+   
+   전체 회원 수 : [   ]명
+   -------------------------------------------
+      이름    국어    영어      수학      석차
+   -----------------------------------------------
+            :
+   ----------------------------------------------
+   
+   1차원 배열
+   var arr = new Array();
+   
+   var arr2 = new Array(new Array());
+ -->
+
+	<div>
+		<form>
+			<input type="button" class="btn" id="info" value="회원 정보 입력"
+				onclick="input()"> <br> 
+			전체 회원 수<input type="text" class="txt" id="txtCount" readonly="readonly">명
+			<hr>
+			<br>
+			<hr>
+			<textarea rows="20" cols="80" id="txtResult" readonly="readonly">이름  국어  영어  수학  총점  석차</textarea>
+			<hr>
+		</form>
+
+	</div>
+
+</body>
+</html>

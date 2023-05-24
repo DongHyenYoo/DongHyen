@@ -1,0 +1,40 @@
+package com.test.src;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
+import com.test.util.DBConn;
+
+public class OracleDAO
+{
+	private Connection conn;
+	
+	public OracleDAO()
+	{
+		conn = DBConn.getConnection();
+	}
+	
+	public ArrayList<MemberDTO> list()
+	{
+		ArrayList<MemberDTO> result = new ArrayList<MemberDTO>();
+		
+		//sql 문 생성
+		String sql="SELECT ID, NAME, TEL, EMAIL FROM TBL_MEMBERLIST";
+		
+		try
+		{
+			//작업객체 생성
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			//실행
+			pstmt.executeQuery();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+			// TODO: handle exception
+		}
+	}
+
+}

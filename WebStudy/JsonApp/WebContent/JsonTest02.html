@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest02.html</title>
+
+<script type="text/javascript">
+	
+	
+	var num = 1;
+	
+	var myJsonObject2=
+		{
+			"test" : "hello"
+		}
+
+</script>
+
+
+</head>
+<body>
+
+<form action="">
+	<!-- <input type="button" value="click" onclick="alert(num)" /> -->
+	<!-- 1 -->
+	<!-- <input type="button" value="click" onclick="alert(myJsonObject)" /> -->
+	<!-- class의 해쉬코드 같은것 [object Object] -->
+	
+	<!-- <input type="button" value="click" onclick="alert(typeof myJsonObject)" /> -->
+	<!-- 자바의 instanceOf와 같아 결과가 object -->
+	
+	<input type="button" value="click" onclick="alert(myJsonObject2.test)">
+	<!-- hello -->
+	
+	<input type="button" value="click" onclick="myJsonObject2.test = 'new test'; alert(myJsonObject2.test)">
+	<!-- new test -->
+
+
+</form>
+
+</body>
+</html>

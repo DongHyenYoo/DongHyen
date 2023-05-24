@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest011.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+
+
+<script type="text/javascript">
+	
+	function initialize()
+	{
+		
+		container = document.getElementById("map");
+		options =
+			{
+				center: new kakao.maps.LatLng(37.556556 , 126.919550),
+				level : 3
+			};
+		
+		map = new kakao.maps.Map(container, options);
+	}
+	
+	
+	function clickAction()
+	{
+		kakao.maps.event.addListener(map, "click", 기능);
+		//1.map : 어떤 지도에 이벤트가 적용될건지
+		//2.click : 발생할 이벤트
+		//3. 기능 : 이벤트 발생시 적용될 기능
+	}
+	
+	
+	</script>
+</head>
+<body onload="initialize()">
+
+
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+
+
+<div>
+	
+	<h1>Kakao Map 마우스 클릭 이벤트 등록</h1>
+	<hr />
+</div>
+
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width:100%; height:350px;">
+</div>
+
+</body>
+</html>

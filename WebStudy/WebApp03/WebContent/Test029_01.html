@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test029</title>
+
+<script type="text/javascript">
+	var cnt = 0; //선택 가능한 아이스크림의 갯수
+	var userCnt = 0; //사용자가 선택한 아이스크림의 갯수
+
+	//선택 가능한 아이스크림 갯수 설정 기능
+	function countSet(obj)
+	{
+
+		cnt = parseInt(obj.value);
+
+		//alert(cnt);
+
+	}
+
+	//각각의 아이스크림 선택 기능
+	//-- 이 과정에서 선택 가능한 아이스크림 갯수와 비교
+
+	function checkItem(obj)
+	{
+	
+
+		//alert(obj);
+		//[object HTMLInputElement]
+
+		//alert(obj.checked); //체크시 true 체크 해제시 false 창이 뜬다.
+
+		if (obj.checked)
+		{
+			if (userCnt >= cnt)
+			{
+				alert("선택할 수 있는 갯수를 초과하였습니다.");
+				obj.checked = false;
+				return;
+			}
+			//사용자가 선택한 갯수 증가
+			userCnt++;
+		
+		} 
+		else
+		{
+			//체크가 해제 됬을시 checkItem()을 호출했으므로 -1
+			userCnt--;
+		}
+
+		//확인
+		//alert("설정갯수: " + cnt + " | 선택개수 = " + userCnt);
+
+	}
+</script>
+
+
+
+</head>
+<body>
+
+	<div>
+		<h1>자바스크립트 활용</h1>
+		<p>아이스크림 주문</p>
+		<hr>
+
+	</div>
+
+	<div>
+		<form>
+			-----사이즈 선택--------- <br> <br> <label> <input
+				type="radio" name="radioGroup" id="size1" value="1"
+				onclick="countSet(this)">싱글(1)<br> <!-- this 로 넘기면 input 객체 자체를 넘김 -->
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size2" value="2" onclick="countSet(this)">더블(2)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size3" value="3" onclick="countSet(this)">파인트(3)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size4" value="4" onclick="countSet(this)">쿼터(4)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size5" value="5" onclick="countSet(this)">패밀리(5)<br>
+			</label> <br> <label> <input type="radio" name="radioGroup"
+				id="size6" value="6" onclick="countSet(this)">하프갤런(6)<br>
+			</label> <br> <br> ---- 아이스크림 종류 ---- <br>
+			<!-- 체크박스는 체크 & 체크해제시 모두 함수호출이 되므로 이 상태를 고려해서
+			코딩하기 위해 input 객체 자체를 넘겨준다. -->
+			<br> <label> <input type="checkbox" name="checkGroup"
+				id="c1" value="엄마" onclick="checkItem(this)" />엄마는 외계인
+			</label> <label> <input type="checkbox" name="checkGroup" id="c2"
+				value="바닐" onclick="checkItem(this)" />바닐라
+			</label> <label> <input type="checkbox" name="checkGroup" id="c3"
+				value="레인" onclick="checkItem(this)" />레인보우 샤베트
+			</label> <label> <input type="checkbox" name="checkGroup" id="c4"
+				value="민트" onclick="checkItem(this)" />민트초코 봉봉
+			</label> <br> <label> <input type="checkbox" name="checkGroup"
+				id="c5" value="아몬" onclick="checkItem(this)" />아몬드 봉봉
+			</label> <label> <input type="checkbox" name="checkGroup" id="c6"
+				value="바람" onclick="checkItem(this)" />바람과 함께 사라지다
+			</label> <label> <input type="checkbox" name="checkGroup" id="c7"
+				value="초코" onclick="checkItem(this)" />초코나무 숲
+			</label> <label> <input type="checkbox" name="checkGroup" id="c8"
+				value="요거" onclick="checkItem(this)" />요거트
+			</label> <br> <label> <input type="checkbox" name="checkGroup"
+				id="c9" value="블랙" onclick="checkItem(this)" />블랙소르베
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="베리" onclick="checkItem(this)" />베리베리 스트로베리
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="체리" onclick="checkItem(this)" />체리 쥬빌레
+			</label> <label> <input type="checkbox" name="checkGroup" id="c10"
+				value="슈팅스타" onclick="checkItem(this)" />슈팅스타
+			</label>
+
+
+		</form>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LoadTest01.html</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+	
+	//○ 『$("선택자").load("로드를 원하는 html 문서의 위치와 이름");』
+	//   -jquery의 기능이 수행되는 중에 다른 html문서를 로드
+	//  -html을 읽어들여서 DOM에 삽입하는 기능을 수행
+	
+	$(document).ready(function()
+	{
+		$("#btn .btnLoad").click(function()
+		{
+			
+			$("#ctrlGrid").load("LoadTest02.html");
+			//비동기 방식으로 페이지 로드
+			
+			//비동기 방식에 대한 테스트
+			window.alert("이 메세지가 먼저 출려됨");
+			//-- 경고창이 먼저 출력되므로 우선순위가 낮은 로드(비동기)가 뒤에 실행된다.
+			
+		});
+	});
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>jquery의 load() 활용 실습</h1>
+	<hr />
+</div>
+
+
+<div>
+	<div id="btn">
+	
+		<div class="btnLoad">HTML 읽어오기 버튼</div>
+	<br>
+	
+	</div>
+	
+	<div id="ctrlGrid">
+	
+	</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>자기소개서</h1>
+
+	<img src="Test.jpg" width="200" height = "300">
+	<h2>1.지원한 이유</h2>
+	<p>웹개발자가 되고싶었던 꿈때문에</p>
+
+
+	<h2>2.현재까지 배운 과목</h2>
+	<p>
+	<ol>
+		<li>자바</li>
+		<li>오라클</li>
+		<li>JDBC</li>
+	</ol>
+	</p>
+
+
+	<h2>3.제일 좋았던 과목</h2>
+	<p>
+		<strong>JDBC</strong>
+	<li>여러개의 클래스를 돌아가면서 만들고자 하는 기능의 흐름을 생각하며<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;작성하는 것이 굉장히 재밌었음
+	</li>
+	</p>
+
+
+
+
+
+
+</body>
+</html>

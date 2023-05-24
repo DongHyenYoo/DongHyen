@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+
+<script type="text/javascript">
+
+function print()
+{
+	var str = document.getElementById("in").value;
+	var arr = str.split(" ");
+	
+	for(var i=0; i<arr.length;i++)
+		{
+		document.getElementById("tot").value += arr[i]+" ";
+		}
+}
+
+
+function getMax()
+{
+	
+	var str = document.getElementById("in").value;
+	var arr = str.split(" ");
+	var max = arr[0];
+	/*for(var i=0; i<arr.length-1;i++)
+		{
+		for(var j=i+1; j<arr.length;j++)
+			{
+				
+				
+				if(max<arr[j])
+					max = arr[j];
+			}
+		}
+	*/
+	
+	//document.getElementById("max").value = max;
+	
+	//document.getElementById("max").value = Math.max(...arr);
+	
+	arr.sort();
+	
+	document.getElementById("max").value = arr[arr.length-1];
+	
+
+}
+
+
+
+
+</script>
+
+</head>
+<body>
+입력받은 값들을 공백을 구분자로 배열에 넣고 
+그중 가장 큰수를 출력
+<div>
+<form>
+데이터 입력(공백 구분) [<input type="text" id="in" class="txt">]
+<br>
+<input type="button" id="push" class="btn" value="결과 확인" onclick="print(),getMax()">
+<br>
+
+-전체 출력<input type="text" id = "tot" class="txt" >
+-가장 큰 수<input type="text" id = "max" class="txt" >
+
+</form>
+</div>
+
+
+</body>
+</html>

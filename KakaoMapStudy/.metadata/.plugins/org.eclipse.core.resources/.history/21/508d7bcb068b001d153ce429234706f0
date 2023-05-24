@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest015.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   // 페이지 로드 됐을 때 이 함수안의 내용은 전역변수처럼 쓰임
+   function initialize()
+   {
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556, 126.919550);
+      
+      options =
+      {
+         center: mapCenter
+         , level: 3  
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //마커 속성 구성
+      //imageSrc = "images/markerImg.png";     //마커 이미지 경로(또는 웹 상의 주소)
+      //imageSrc = "images/markerGif01.gif";
+     // imageSrc = "images/markerGif02.gif";
+      //imageSrc = "images/markerGif03.gif";
+      //imageSrc = "images/markerGif04.gif";
+      //imageSrc = "images/markerGif05.gif";
+      //imageSrc = "images/markerGif06.gif";
+      imageSrc = "data:image/jpeg;base64,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" 처럼 경로도 가능
+      
+      
+      //카카오에는 사이즈를 지정하는 메소드가 존재
+      imageSize = new kakao.maps.Size(54, 59); //마커 이미지 크기
+      
+      imageOption = {offset: new kakao.maps.Point(27, 69)};
+      //--마커 이미지에 대한 옵션
+      // 마커 좌표와 일치시킬 이미지 안에서의 좌표 설정
+      
+      
+      //구성한 마커의 속성을 활용하여 마커 이미지 생성
+      markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+      
+      //마커 생성
+      marker = new kakao.maps.Marker({
+    	  
+    	  position: mapCenter,
+    	  image : markerImage,                 //-- 추가 옵션 : 마커 이미지 설정
+    	  
+      });
+      
+      
+      // 마커를 구성하고나서 지도에 그리는 과정이 필요함
+      // 지도에 마커 표시
+      marker.setMap(map);
+      
+      
+   }
+   
+   </script>
+</head>
+<body onload="initialize()">
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<div>
+   <h1>Kakao Map 이동 가능한 마커 생성</h1>
+   <hr>
+</div>
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 350px;"></div>
+<br>
+
+</body>
+</html>

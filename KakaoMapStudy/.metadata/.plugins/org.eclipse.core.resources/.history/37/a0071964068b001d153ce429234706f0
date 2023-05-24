@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest015.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   // 페이지 로드 됐을 때 이 함수안의 내용은 전역변수처럼 쓰임
+   function initialize()
+   {
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556, 126.919550);
+      
+      options =
+      {
+         center: mapCenter
+         , level: 3  
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //마커 속성 구성
+      //imageSrc = "images/markerImg.png";     //마커 이미지 경로(또는 웹 상의 주소)
+      //imageSrc = "images/markerGif01.gif";
+     // imageSrc = "images/markerGif02.gif";
+      imageSrc = "images/markerGif03.gif";
+      
+      //카카오에는 사이즈를 지정하는 메소드가 존재
+      imageSize = new kakao.maps.Size(54, 59); //마커 이미지 크기
+      
+      imageOption = {offset: new kakao.maps.Point(27, 69)};
+      //--마커 이미지에 대한 옵션
+      // 마커 좌표와 일치시킬 이미지 안에서의 좌표 설정
+      
+      
+      //구성한 마커의 속성을 활용하여 마커 이미지 생성
+      markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+      
+      //마커 생성
+      marker = new kakao.maps.Marker({
+    	  
+    	  position: mapCenter,
+    	  image : markerImage,                 //-- 추가 옵션 : 마커 이미지 설정
+    	  
+      });
+      
+      
+      // 마커를 구성하고나서 지도에 그리는 과정이 필요함
+      // 지도에 마커 표시
+      marker.setMap(map);
+      
+      
+   }
+   
+   </script>
+</head>
+<body onload="initialize()">
+<!-- ○ 발급받은 App Key -->
+<!-- appkey=b0adb6cf684c4c502462a6673bf822bf -->
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<div>
+   <h1>Kakao Map 이동 가능한 마커 생성</h1>
+   <hr>
+</div>
+
+<!-- 지도를 그릴 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 350px;"></div>
+<br>
+
+</body>
+</html>

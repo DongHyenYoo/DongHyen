@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이력서</title>
+</head>
+<body>
+<h1>이력서</h1>
+<table border="1">
+<tr>
+<td rowspan="4"><img src="Test.jpg" width = "80" height="80" alt="테스트"></td> <td colspan="4">이력서</td>
+</tr>
+
+<tr>
+ <td rowspan="2">성명</td> <td>한글 : 유동현</td> <td>전화번호</td> <td> 02-792-0000</td> 
+</tr>
+
+<tr>
+ <td>영문 : YooDongHyen</td> <td>휴대전화</td> <td>010-3578-3912</td>
+</tr>
+
+<tr>
+ <td>주소</td> <td colspan="3">서울시 용산구 한남대로</td>
+</tr>
+
+</table>
+</body>
+</html>

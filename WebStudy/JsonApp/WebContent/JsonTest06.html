@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest06.html</title>
+<script type="text/javascript">
+
+/* 	var myJsonObject6 =
+	{
+		"test" : 123
+	}
+ */
+	/* var myJsonObject6 =
+	{
+		"test" : 123.456
+	}
+	 */
+	
+/* 	 var myJsonObject6 =
+	{
+		"test" : true
+	}
+ */	
+	 var myJsonObject6 =
+	{
+		"test" : null
+	}
+	
+
+</script>
+
+</head>
+<body>
+
+<form>
+	<input type="button" value="click1" onclick="alert(myJsonObject6.test)"/>
+	<!-- 123 -->
+	<!-- 123.456 -->
+	<!-- true -->
+	<!-- null -->
+	
+	<input type="button" value="click2" onclick="alert(typeof myJsonObject6.test)"/>
+	<!-- number -->
+	<!-- number -->
+	<!-- boolean -->
+	<!-- object  json에서 null은 Object 취급을 받음-->
+	
+	<br><br>
+	
+	<input type="button" value="click3" onclick="myJsonObject6.test=123; alert(myJsonObject6.test)" />
+	<!-- null -> 123으로 바뀜 -->
+	
+	<input type="button" value="click4" onclick="myJsonObject6.test=123; alert(typeof myJsonObject6.test)" />
+	<!-- Object -> number로 바뀜 -->
+	
+	<br><br>
+	
+	<input type="button" value="click5" onclick="myJsonObject6.test='123'; alert(myJsonObject6.test)" />
+	<!-- 123 -->
+	<input type="button" value="click6" onclick="myJsonObject6.test='123'; alert(typeof myJsonObject6.test)" />
+	<!-- string -->
+	
+</form>
+
+</body>
+</html>

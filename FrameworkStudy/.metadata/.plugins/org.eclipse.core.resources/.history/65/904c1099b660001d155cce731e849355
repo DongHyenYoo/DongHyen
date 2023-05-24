@@ -1,0 +1,23 @@
+/*================================
+ 
+ CalculatorAfterThrowing.java
+ - After Throwing Advice 구성
+ ===============================*/
+
+package com.test.spr;
+
+import org.springframework.aop.ThrowsAdvice;
+
+public class CalculatorAfterThrowing implements ThrowsAdvice
+{
+	
+	public void afterThrowing(IllegalArgumentException e)throws Throwable
+	{
+		System.out.println(e.toString()); //과 같은 처리가 가능
+		
+		
+	}
+	
+	
+
+}

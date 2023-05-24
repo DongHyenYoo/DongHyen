@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+#memberList {border: 2px;}
+#memberList td{text-align:center; width: 100px;}
+
+
+</style>
+
+<script type="text/javascript">
+
+	/*select 를 다루어보기 위한 테스트 함수 정의 */
+	function selectTest()
+	{
+		//alert("아");
+		
+		 //첫 번째 방법
+		//var position = document.getElementById("userPosition").value;
+		
+		//alert(position); //vfr(사원)
+		 
+	 	//두번째 방법
+	 	/* 
+		var positionObj = document.getElementById("userPosition");
+		
+	//	alert(positionObj); //[object HTMLSelectElement]
+	 
+	 
+	 	var positionOptions = positionObj.options;
+		
+		//alert(positionOptions); //[object HTMLOptionsCollection] 콜렉션 나오면 보통 배열형태라고 이해하면 된다.
+		
+		var positionMessage = "";
+		
+		for (var i = 0; i < positionOptions.length; i++)
+		{
+			if(positionOptions[i].selected)
+				{
+				//단일 선택에 해당하는 코드
+				 positionMessage = positionOptions[i].value;
+				break; 
+				
+				//다중 선택
+				positionMessage += positionOptions[i].value + " ";
+				//다중 선택일시 break 쓰면 안댐
+				
+				
+				}
+		}
+		
+		alert(positionMessage);
+	 */
+	 
+	 //세번째 방법
+	 var positionObj = document.getElementById("userPosition");
+	 
+	 //확인
+	 //alert(positionObj.selectedIndex);
+	 //부장 0 과장 1 대리 2 사원 3
+	 
+	 //확인
+	 //alert(positionObj.options[2].value);
+	 //대리
+	 
+	 var positionMessage = positionObj.options[positionObj.selectedIndex].value;
+	 //positionObj = select Element
+	 //.options = Collection = 배열
+	 //positionObj.selectedIndex = 사용자가 선택한 것의 index
+	 //.value = value값
+	 
+	 alert(positionMessage);
+	 
+	 
+	 
+			 
+	}
+	
+	function addMember()
+	{
+		
+		//테이블 추가방법
+		//1. tablenode 생성 document.getElementById
+		//2. trnode 생성   
+		//3. tdnode 생성
+		// tr appendChild td
+		// table appendChild tr
+		// tr 초기화 잊지 말기
+		var tableNode = document.getElementById("memberList");
+		var trNode = document.createElement("tr");
+		
+		var name = document.getElementById("userName").value; //이름
+		var ssn = document.getElementById("userSsn").value; //주민번호
+		var basicPay = document.getElementById("userBasicPay").value; //기본급
+
+		
+		var cityObj = document.getElementById("userCity"); //select 객체
+		
+		var cityValue = cityObj.options[cityObj.selectedIndex].value.split("("); //사용자가 선택한 value값
+		cityValue = cityValue[1].split(")",1);
+		
+		var positionObj = document.getElementById("userPosition");
+		var positionValue = positionObj.options[positionObj.selectedIndex].value.split("(");
+		positionValue = positionValue[1].split(")",1);
+		
+		var deptObj = document.getElementById("userDept");
+		var deptValue = deptObj.options[deptObj.selectedIndex].value.split("(");
+		deptValue = deptValue[1].split(")",1);
+		
+		trNode.appendChild(createTdNode(name));
+		trNode.appendChild(createTdNode(ssn));
+		trNode.appendChild(createTdNode(cityValue));
+		trNode.appendChild(createTdNode(deptValue));
+		trNode.appendChild(createTdNode(positionValue));
+		trNode.appendChild(createTdNode(basicPay));
+		
+		
+		
+		
+		tableNode.appendChild(trNode);
+		formClear();
+		
+		//document.getElementById("myForm").reset(); //form 에 id를 주었을때 .reset()을 통해 리셋가능
+		
+		//모든 element에는 form을 찾겠다는 구문이 존재한다. 
+		//document.forms[0].reset();
+		//0번째 form 즉 제일 처음 등장한 form에 대한것
+		//위와같이 하면 form에 id를 주지않고서도 쓸수있다.
+		
+		//document.getElementById("userName").focus();
+		//모든 입력이 끝난후 .focus를 통해 userName 부터 바로 다시 입력할수 있도록 하겠따.
+		
+	}
+	
+	function createTdNode(txt)
+	{
+		var str = document.createTextNode(txt);
+		var tdNode = document.createElement("td");
+		
+		tdNode.appendChild(str);
+		
+		return tdNode;
+		
+		
+	}
+	
+	
+	function formClear()
+	{
+		document.getElementById("userName").value = "";
+		document.getElementById("userSsn").value = "";
+		
+		var cityObj = document.getElementById("userCity");
+		cityObj.options[0].selected = true;
+		
+		var deptObj = document.getElementById("userDept");
+		deptObj.options[2].selected = true;
+		
+		var positionObj = document.getElementById("userPosition");
+		positionObj.options[3].selected = true;
+		
+		document.getElementById("userBasicPay").value = "";
+		
+	}
+	
+	
+
+</script>
+
+
+</head>
+<body>
+<div>
+   <h1>자바스크립트 활용</h1>
+</div>
+
+<div>
+   <h2>선택목록(select) 다루기</h2>
+   
+   <form id="myForm">
+      <table>
+         <tr>
+            <td>이름</td>
+            <td>
+               <!-- <input type="text" id="userName" placeholder="ex)홍길동"> -->
+               <input type="text" id="userName">
+            </td>
+         </tr>
+         <tr>
+            <td>주민번호</td>
+            <td>
+               <!-- <input type="text" id="userSsn" placeholder="ex)751212-1234567"> -->
+               <input type="text" id="userSsn">
+            </td>
+         </tr>
+         <tr>   
+            <td>지역</td>
+            <td>
+               <!-- <input type="text" id="userCity" placeholder="ex)서울"> -->
+               <select id="userCity">
+                  <option value="1123(서울)">서울</option> <!-- DB설계의 정규화에서 익힌것처럼 명칭이 다를수도있는
+                   ex)부장, 팀장급(과장) 서울, 서울시 와같은 것들은	코드(9987 개발부, 2234 대전, zaq 부장 등과 같이 코드로 구성하는것이 이후 DB활용에 더 좋다. -->
+                  <option value="2234(대전)" selected="selected">대전</option>
+                  <option value="3345(광주)">광주</option>
+                  <option value="4456(대구)">대구</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td>부서</td>
+            <td>
+               <!-- <input type="text" id="userDepartment" placeholder="ex)개발부"> -->
+               <select id="userDept">
+                  <option value="9987(개발부)">개발부</option>
+                  <option value="8876(인사부)">인사부</option>
+                  <option value="7765(자재부)">자재부</option>
+                  <option value="6654(영업부)">영업부</option>
+                  <option value="5543(총부무)">총무부</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td>직위</td>
+            <td>
+               <!-- <input type="text" id="userPosition" placeholder="ex)부장"> -->
+               <select id="userPosition">
+                  <option value="zaq(부장)">부장</option>
+                  <option value="xsw(과장)">과장</option>
+                  <option value="cde(대리)">대리</option>
+                  <option value="vfr(사원)" selected="selected">사원</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td>기본급</td>
+            <td>
+               <!-- <input type="text" id="userBasicPay" placeholder="ex)3000000"> -->
+               <input type="text" id="userBasicPay">
+            </td>
+         </tr>
+      </table>
+      
+     <!--   <input type="button" value="직원 추가" class="btn" onclick="selectTest()">  -->
+      
+      <input type="button" value="직원 추가" class="btn" onclick="addMember()"> 
+      
+      <!-- <input type="reset" value="깨끗하게 맑게 자신있게"> -->
+      
+      <input type="reset" value="깨끗" />
+      
+      <br><br>
+      
+      
+      
+      <table id="memberList">
+         <tr>
+            <td>이름</td>
+            <td>주민번호</td>
+            <td>지역</td>
+            <td>부서</td>
+            <td>직위</td>
+            <td>기본급</td>
+         </tr>
+      </table>
+   </form>
+</div>
+</body>
+</html>

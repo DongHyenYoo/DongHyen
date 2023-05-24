@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest022.html</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b0adb6cf684c4c502462a6673bf822bf"></script>
+<script type="text/javascript">
+
+   function initialize()
+   {
+      container = document.getElementById("map");
+      mapCenter = new kakao.maps.LatLng(37.556556 , 126.919550);
+      options =
+      {
+            center: mapCenter,
+            level: 3,
+      };
+      
+      map = new kakao.maps.Map(container, options);
+      
+      //check
+      //지도에 로드뷰 정보가 있는 도로를 표시할 수 있도록 지도타입 추가
+      map.addOverlayMapTypeId(kakao.maps.MapTypeId.ROADVIEW);
+ 		     
+   }
+   
+   
+   function addRoadViewInfo()
+{
+	   map.addOverlayMapTypeId(kakao.maps.MapTypeId.ROADVIEW);
+	
+}
+   
+   
+   function removeRoadViewInfo()
+{
+	   map.removeOverlayMapTypeId(kakao.maps.MapTypeId.ROADVIEW);
+}
+</script>
+
+</head>
+<body onload="initialize()">
+
+
+<!-- ○ 지도의 중심 좌표-->
+<!-- 37.556556 , 126.919550 -->
+<!-- ○ 발급받은 App key -->
+<!-- b0adb6cf684c4c502462a6673bf822bf -->
+<!-- ○ 교육원 길건너 스타벅스 -->
+<!-- 37.55685652581343, 126.91999059401587 -->
+<div>
+   <h1>Kakao Map 로드뷰  표시</h1>
+   <hr />
+</div>
+<!-- 지도를 그릴 div 공간 확보(지정)    -->
+<div id="map" style="width:100%; height:400px;"></div>
+<br>
+
+<p>
+	<button type="button" onclick="addRoadViewInfo()">로드뷰 표시</button>
+	<button type="button" onclick="removeRoadViewInfo()">로드뷰 표시</button>
+	
+</p>
+
+</body>
+</html>

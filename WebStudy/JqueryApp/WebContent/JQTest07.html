@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+//$(document).ready();
+$(function()
+{
+	//alert("확인~!!!");
+	
+	/* $("#allCheck").click(function()
+	{
+		alert("클릭");
+		
+	}); */
+	
+	
+	$("#allCheck").change(function()
+	{
+		//alert("변경"); 변경된 사항을 확인
+		
+		//alert($(this).attr("checked") ); //undefined
+		
+		//alert($(this).prop("checked") ); //true / false 반환
+		//alert(this.checked); //여기서의 this는 선택자와는 다른 현재 컨트롤하고있는 객체 자체
+		//true or false 반환
+		
+		//alert($(this).is(":checked"));
+					//----------------
+				//	  속성이 아닌 속성값
+		//true / false 반환
+		
+		//$("div>input").prop("checked","checked");
+		//$("div>input").prop("checked",true);
+		//$("div>input").prop("checked",false);
+		//$("div>input").prop("checked",this.checked);
+
+		
+		//$("div>input:checkbox").prop("checked",this.checked);
+		
+		
+		//방법 2.
+		//『$(선택자).children()』
+		//$("div").children() //div의 안에있는 모든것
+		$("div").children().prop("checked", this.checked);
+		
+	});
+	
+	
+	
+	
+	
+});
+
+</script>
+
+</head>
+<body>
+
+
+
+<label for="">
+	<input type="checkbox" id="allCheck" />모두선택
+</label>
+<br />
+	<br />
+
+
+<div>
+	<input type="checkbox" id="check1" />
+	<label for="check1">바나나</label>
+	<br />
+	<input type="checkbox" id="check2" />
+	<label for="check2">포도</label>
+	<br />
+	<input type="checkbox" id="check3" />
+	<label for="check3">수박</label>
+	<br />
+	<input type="checkbox" id="check4" />
+	<label for="check4">포도</label>
+	<br />
+	<input type="checkbox" id="check5" />
+	<label for="check5">키위</label>
+	<br />
+</div> 
+
+</body>
+</html>
